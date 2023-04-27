@@ -41,8 +41,14 @@ CREATE TABLE medios_pagos(
 	nombre_titular character(50) NOT NULL,
 	apellido_titular character(50) NOT NULL,
 	numero_tarjeta character(60) NOT NULL,
-	fecha_vencimiento character(5),
+	fecha_vencimiento character(5) NOT NULL,
 	fk_oid_usuario bigserial NOT NULL REFERENCES usuarios(oid_usuario)
+);
+
+-- create table tipo_vivienda
+CREATE TABLE tipo_vivienda(
+	oid_tipo_vivienda serial PRIMARY KEY NOT NULL,
+	nombre_vivienda character(40) NOT NULL
 );
 
 
@@ -59,6 +65,7 @@ SELECT * FROM usuarios;
 SELECT * FROM roles;
 SELECT * FROM usuarios_roles;
 SELECT * FROM medios_pagos;
+SELECT * FROM tipo_vivienda;
 
 
 ------------------------------------------------------------------------------------
