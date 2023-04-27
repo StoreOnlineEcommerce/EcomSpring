@@ -18,13 +18,13 @@ CREATE TABLE usuarios(
 )
 
 
--- create table rol
+-- create table roles
 CREATE TABLE roles(
 	oid_rol serial PRIMARY KEY NOT NULL,
 	nombre_rol character(10) NOT NULL
 )
 
--- create table roles
+-- create table usuarios_roles
 CREATE TABLE usuarios_roles(
 	oid_usuario_roles serial PRIMARY KEY NOT NULL,
 	oid_usuario bigserial NOT NULL REFERENCES usuarios(oid_usuario),
@@ -32,19 +32,19 @@ CREATE TABLE usuarios_roles(
 )
 
 
--- Create Table for the roles
-CREATE TABLE roles(   		
-	id_roles serial PRIMARY KEY NOT NULL,
-	nombre_rol character(5)	NOT NULL
-)
 
+
+------------------------------------------------------------------------------------
+------------------------------***********------------------------------------------
+------------------------------------------------------------------------------------
 
 
 
 -- check  of the tables
-SELECT * FROM TipoDocumento
-SELECT * FROM roles
-SELECT * FROM usuarios
+SELECT * FROM tipo_documento;
+SELECT * FROM usuarios;
+SELECT * FROM roles;
+SELECT * FROM usuarios_roles;
 
 
 -- Insert data
