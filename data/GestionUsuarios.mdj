@@ -556,7 +556,7 @@
 											"top": 349,
 											"width": 247.46435546875,
 											"height": 13,
-											"text": "mediospagos"
+											"text": "medios_pagos"
 										},
 										{
 											"_type": "ERDColumnCompartmentView",
@@ -721,7 +721,7 @@
 												"$ref": "AAAAAAGHv0B6FqXeOl8="
 											},
 											"edgePosition": 1,
-											"text": "fk_usuario_oid_usuario"
+											"text": "fk_usuarios_oid_usuario"
 										},
 										{
 											"_type": "EdgeLabelView",
@@ -1058,7 +1058,7 @@
 											"font": "Arial;13;1",
 											"left": 1096,
 											"top": 597,
-											"width": 251.076171875,
+											"width": 258.30615234375,
 											"height": 13,
 											"text": "direccion"
 										},
@@ -1084,7 +1084,7 @@
 													"font": "Arial;13;0",
 													"left": 1101,
 													"top": 620,
-													"width": 241.076171875,
+													"width": 248.30615234375,
 													"height": 13
 												},
 												{
@@ -1099,7 +1099,7 @@
 													"font": "Arial;13;0",
 													"left": 1101,
 													"top": 635,
-													"width": 241.076171875,
+													"width": 248.30615234375,
 													"height": 13
 												},
 												{
@@ -1115,7 +1115,7 @@
 													"font": "Arial;13;0",
 													"left": 1773,
 													"top": 554,
-													"width": 241.076171875,
+													"width": 248.30615234375,
 													"height": 13
 												},
 												{
@@ -1130,7 +1130,7 @@
 													"font": "Arial;13;0",
 													"left": 1101,
 													"top": 650,
-													"width": 241.076171875,
+													"width": 248.30615234375,
 													"height": 13
 												},
 												{
@@ -1146,7 +1146,7 @@
 													"font": "Arial;13;0",
 													"left": 1101,
 													"top": 625,
-													"width": 241.076171875,
+													"width": 248.30615234375,
 													"height": 13
 												},
 												{
@@ -1161,7 +1161,7 @@
 													"font": "Arial;13;0",
 													"left": 1101,
 													"top": 665,
-													"width": 241.076171875,
+													"width": 248.30615234375,
 													"height": 13
 												},
 												{
@@ -1176,7 +1176,7 @@
 													"font": "Arial;13;0",
 													"left": 1101,
 													"top": 680,
-													"width": 241.076171875,
+													"width": 248.30615234375,
 													"height": 13
 												},
 												{
@@ -1191,7 +1191,7 @@
 													"font": "Arial;13;0",
 													"left": 1101,
 													"top": 695,
-													"width": 241.076171875,
+													"width": 248.30615234375,
 													"height": 13
 												},
 												{
@@ -1206,7 +1206,7 @@
 													"font": "Arial;13;0",
 													"left": 1101,
 													"top": 710,
-													"width": 241.076171875,
+													"width": 248.30615234375,
 													"height": 13
 												},
 												{
@@ -1221,7 +1221,7 @@
 													"font": "Arial;13;0",
 													"left": 1101,
 													"top": 725,
-													"width": 241.076171875,
+													"width": 248.30615234375,
 													"height": 13
 												},
 												{
@@ -1236,7 +1236,7 @@
 													"font": "Arial;13;0",
 													"left": 1101,
 													"top": 740,
-													"width": 241.076171875,
+													"width": 248.30615234375,
 													"height": 13
 												},
 												{
@@ -1252,21 +1252,21 @@
 													"font": "Arial;13;0",
 													"left": 1101,
 													"top": 685,
-													"width": 241.076171875,
+													"width": 248.30615234375,
 													"height": 13
 												}
 											],
 											"font": "Arial;13;0",
 											"left": 1096,
 											"top": 615,
-											"width": 251.076171875,
+											"width": 258.30615234375,
 											"height": 143
 										}
 									],
 									"font": "Arial;13;0",
 									"left": 1096,
 									"top": 592,
-									"width": 251.076171875,
+									"width": 258.30615234375,
 									"height": 166,
 									"nameLabel": {
 										"$ref": "AAAAAAGHv1bu/aaBrow="
@@ -1827,9 +1827,9 @@
 											"font": "Arial;13;1",
 											"left": 664,
 											"top": 757,
-											"width": 236.6416015625,
+											"width": 239.51708984375,
 											"height": 13,
-											"text": "tipovivienda"
+											"text": "tipo_vivienda"
 										},
 										{
 											"_type": "ERDColumnCompartmentView",
@@ -1853,7 +1853,7 @@
 													"font": "Arial;13;0",
 													"left": 669,
 													"top": 780,
-													"width": 226.6416015625,
+													"width": 229.51708984375,
 													"height": 13
 												},
 												{
@@ -1868,21 +1868,21 @@
 													"font": "Arial;13;0",
 													"left": 669,
 													"top": 795,
-													"width": 226.6416015625,
+													"width": 229.51708984375,
 													"height": 13
 												}
 											],
 											"font": "Arial;13;0",
 											"left": 664,
 											"top": 775,
-											"width": 236.6416015625,
+											"width": 239.51708984375,
 											"height": 38
 										}
 									],
 									"font": "Arial;13;0",
 									"left": 664,
 									"top": 752,
-									"width": 236.6416015625,
+									"width": 239.51708984375,
 									"height": 80,
 									"nameLabel": {
 										"$ref": "AAAAAAGHwzWM1F6kl0U="
@@ -1926,9 +1926,9 @@
 												"$ref": "AAAAAAGHwzcmN17K8M8="
 											},
 											"font": "Arial;13;0",
-											"left": 695,
+											"left": 692,
 											"top": 720,
-											"width": 186.46240234375,
+											"width": 193.6923828125,
 											"height": 13,
 											"alpha": -0.26299477780157443,
 											"distance": 26.92582403567252,
@@ -1936,7 +1936,7 @@
 												"$ref": "AAAAAAGHwzcmN17K8M8="
 											},
 											"edgePosition": 2,
-											"text": "fk_tipovivienda_oid_tipovivienda"
+											"text": "fk_tipo_vivienda_oid_tipovivienda"
 										},
 										{
 											"_type": "EdgeLabelView",
@@ -2161,7 +2161,7 @@
 									"_parent": {
 										"$ref": "AAAAAAGHvya6J6SWVaM="
 									},
-									"name": "fk_usuario_oid_usuario",
+									"name": "fk_usuarios_oid_usuario",
 									"end1": {
 										"_type": "ERDRelationshipEnd",
 										"_id": "AAAAAAGHv0B6FqXbGT0=",
@@ -2577,7 +2577,7 @@
 							"_parent": {
 								"$ref": "AAAAAAGHvyaCGKR+VV0="
 							},
-							"name": "mediospagos",
+							"name": "medios_pagos",
 							"ownedElements": [
 								{
 									"_type": "ERDRelationship",
@@ -3000,7 +3000,7 @@
 									"_parent": {
 										"$ref": "AAAAAAGHv1bu/KZ+wFw="
 									},
-									"name": "fk_oid_tipovivienda",
+									"name": "fk_oid_tipo_vivienda",
 									"type": "serial",
 									"length": 0,
 									"foreignKey": true
@@ -3275,7 +3275,7 @@
 							"_parent": {
 								"$ref": "AAAAAAGHvyaCGKR+VV0="
 							},
-							"name": "tipovivienda",
+							"name": "tipo_vivienda",
 							"ownedElements": [
 								{
 									"_type": "ERDRelationship",
@@ -3289,7 +3289,7 @@
 										"_parent": {
 											"$ref": "AAAAAAGHwzcmNl7GLw8="
 										},
-										"name": "fk_tipovivienda_oid_tipovivienda",
+										"name": "fk_tipo_vivienda_oid_tipovivienda",
 										"reference": {
 											"$ref": "AAAAAAGHwzWM1F6hJlU="
 										}
@@ -3314,7 +3314,7 @@
 									"_parent": {
 										"$ref": "AAAAAAGHwzWM1F6hJlU="
 									},
-									"name": "oid_tipovivienda",
+									"name": "oid_tipo_vivienda",
 									"type": "serial",
 									"length": 0,
 									"primaryKey": true
