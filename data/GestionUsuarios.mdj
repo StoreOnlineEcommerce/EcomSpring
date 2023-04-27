@@ -57,7 +57,7 @@
 											"top": 517,
 											"width": 245.28076171875,
 											"height": 13,
-											"text": "usuario"
+											"text": "usuarios"
 										},
 										{
 											"_type": "ERDColumnCompartmentView",
@@ -2153,7 +2153,7 @@
 							"_parent": {
 								"$ref": "AAAAAAGHvyaCGKR+VV0="
 							},
-							"name": "usuario",
+							"name": "usuarios",
 							"ownedElements": [
 								{
 									"_type": "ERDRelationship",
