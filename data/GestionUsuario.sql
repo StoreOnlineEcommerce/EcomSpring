@@ -24,7 +24,20 @@ CREATE TABLE usuarios(
 )
 
 
-
+-- verificacion de tablas
 SELECT * FROM TipoDocumento
 SELECT * FROM roles
 SELECT * FROM usuarios
+
+
+-- Insertamos datos
+
+-- Tabla tipo de documento
+INSERT INTO tipodocumento(nombre_documento) VALUES ('Registro Civil');
+INSERT INTO tipodocumento(nombre_documento) VALUES ('Tarjeta de Identidad');
+INSERT INTO tipodocumento(nombre_documento) VALUES ('Cédula de Ciudadanía');
+INSERT INTO tipodocumento(nombre_documento) VALUES ('Tarjeta de Extranjería');
+INSERT INTO tipodocumento(nombre_documento) VALUES ('Cédula de Extranjería');
+INSERT INTO tipodocumento(nombre_documento) VALUES ('Pasaporte');
+INSERT INTO tipodocumento(nombre_documento) VALUES ('Documento de identificación extranjero');
+INSERT INTO tipodocumento(nombre_documento) VALUES ('NUIP');
