@@ -51,6 +51,12 @@ CREATE TABLE tipo_vivienda(
 	nombre_vivienda character(40) NOT NULL
 );
 
+-- create table departamento
+CREATE TABLE departamento(
+	oid_departamento serial PRIMARY KEY NOT NULL,
+	nombre_departamento character(60) NOT NULL
+);
+
 
 
 
@@ -66,6 +72,7 @@ SELECT * FROM roles;
 SELECT * FROM usuarios_roles;
 SELECT * FROM medios_pagos;
 SELECT * FROM tipo_vivienda;
+SELECT * FROM departamento;
 
 
 ------------------------------------------------------------------------------------
