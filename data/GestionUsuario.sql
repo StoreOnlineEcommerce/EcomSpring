@@ -144,3 +144,10 @@ INSERT INTO medios_pagos VALUES (1,'Duvan','Castro','1233-555-2225-0233','10/27'
 INSERT INTO medios_pagos( oid_medios_pagos,nombre_titular,apellido_titular, numero_tarjeta,fecha_vencimiento,fk_oid_usuario)
 					VALUES (2,'Leidy','Reyes','2222-888-999-5263', '08/28',2 );
 
+-- table tipo_vivienda
+INSERT INTO tipo_vivienda(nombre_vivienda) VALUES ('casa');
+INSERT INTO tipo_vivienda(nombre_vivienda) VALUES ('apartamento');
+INSERT INTO tipo_vivienda(nombre_vivienda) VALUES ('duplex');
+INSERT INTO tipo_vivienda(nombre_vivienda) VALUES ('casa movil');
+INSERT INTO tipo_vivienda(nombre_vivienda) VALUES ('casa adosada');
+
