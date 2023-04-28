@@ -57,6 +57,13 @@ CREATE TABLE departamento(
 	nombre_departamento character(60) NOT NULL
 );
 
+-- create table municipio
+CREATE TABLE  municipio(
+	oid_municipio serial PRIMARY KEY NOT NULL,
+	nombre_municipio character(60) NOT NULL,
+	fk_oid_departamento serial NOT NULL REFERENCES departamento(oid_departamento)
+);
+
 
 
 
@@ -73,6 +80,7 @@ SELECT * FROM usuarios_roles;
 SELECT * FROM medios_pagos;
 SELECT * FROM tipo_vivienda;
 SELECT * FROM departamento;
+SELECT * FROM municipio;
 
 
 ------------------------------------------------------------------------------------
