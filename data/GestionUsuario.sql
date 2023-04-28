@@ -64,6 +64,24 @@ CREATE TABLE  municipio(
 	fk_oid_departamento serial NOT NULL REFERENCES departamento(oid_departamento)
 );
 
+-- create table tipocalle
+CREATE TABLE tipocalle(
+	oid_tipo_calle serial PRIMARY KEY NOT NULL,
+	nombre_calle character(50) NOT NULL
+);
+
+-- create table direccion
+CREATE TABLE direccion(
+	oid_direccion bigserial PRIMARY KEY NOT NULL,
+	fk_oid_usuario bigserial NOT NULL REFERENCES usuarios(oid_usuario),
+	numero character(10) NOT NULL,
+	interior character(10),
+	complemento character(50),
+	codigo_postal character(10),
+	fk_oid_tipo_vivienda serial NOT NULL REFERENCES tipo_vivienda(oid_tipo_vivienda),
+	fk_oid_municipio serial NOT NULL REFERENCES municipio(oid_municipio),
+	fk_oid_tipo_calle serial NOT NULL REFERENCES tipocalle(oid_tipo_calle)
+);
 
 
 
@@ -81,6 +99,8 @@ SELECT * FROM medios_pagos;
 SELECT * FROM tipo_vivienda;
 SELECT * FROM departamento;
 SELECT * FROM municipio;
+SELECT * FROM tipocalle;
+SELECT * FROM direccion;
 
 
 ------------------------------------------------------------------------------------
