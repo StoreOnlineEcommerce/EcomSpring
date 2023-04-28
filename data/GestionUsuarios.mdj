@@ -1292,9 +1292,9 @@
 												"$ref": "AAAAAAGHv1eyCKafeRM="
 											},
 											"font": "Arial;13;0",
-											"left": 948,
+											"left": 945,
 											"top": 616,
-											"width": 134.42431640625,
+											"width": 140.92431640625,
 											"height": 13,
 											"alpha": 1.1760050480714606,
 											"distance": 78,
@@ -1302,7 +1302,7 @@
 												"$ref": "AAAAAAGHv1eyCKafeRM="
 											},
 											"edgePosition": 1,
-											"text": "fk_usuario_oid_usuario"
+											"text": "fk_usuarios_oid_usuario"
 										},
 										{
 											"_type": "EdgeLabelView",
@@ -1926,12 +1926,12 @@
 												"$ref": "AAAAAAGHwzcmN17K8M8="
 											},
 											"font": "Arial;13;0",
-											"left": 692,
+											"left": 688,
 											"top": 720,
 											"width": 193.6923828125,
 											"height": 13,
-											"alpha": -0.26299477780157443,
-											"distance": 26.92582403567252,
+											"alpha": -0.1148766724789263,
+											"distance": 26.1725046566048,
 											"hostEdge": {
 												"$ref": "AAAAAAGHwzcmN17K8M8="
 											},
@@ -2190,7 +2190,7 @@
 									"_parent": {
 										"$ref": "AAAAAAGHvya6J6SWVaM="
 									},
-									"name": "fk_usuario_oid_usuario",
+									"name": "fk_usuarios_oid_usuario",
 									"end1": {
 										"_type": "ERDRelationshipEnd",
 										"_id": "AAAAAAGHv1eyCKaczqM=",
