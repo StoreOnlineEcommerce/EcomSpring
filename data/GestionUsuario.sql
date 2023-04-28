@@ -151,3 +151,37 @@ INSERT INTO tipo_vivienda(nombre_vivienda) VALUES ('duplex');
 INSERT INTO tipo_vivienda(nombre_vivienda) VALUES ('casa movil');
 INSERT INTO tipo_vivienda(nombre_vivienda) VALUES ('casa adosada');
 
+-- table departamentos
+INSERT INTO departamento(nombre_departamento) VALUES ('Amazonas');
+INSERT INTO departamento(nombre_departamento) VALUES ('Antioquia');
+INSERT INTO departamento(nombre_departamento) VALUES ('Arauca');
+INSERT INTO departamento(nombre_departamento) VALUES ('Atlántico');
+INSERT INTO departamento(nombre_departamento) VALUES ('Bolívar');
+INSERT INTO departamento(nombre_departamento) VALUES ('Boyacá');
+INSERT INTO departamento(nombre_departamento) VALUES ('Caldas');
+INSERT INTO departamento(nombre_departamento) VALUES ('Caquetá');
+INSERT INTO departamento(nombre_departamento) VALUES ('Casanare');
+INSERT INTO departamento(nombre_departamento) VALUES ('Cauca');
+INSERT INTO departamento(nombre_departamento) VALUES ('Cesar');
+INSERT INTO departamento(nombre_departamento) VALUES ('Chocó');
+INSERT INTO departamento(nombre_departamento) VALUES ('Córdoba');
+INSERT INTO departamento(nombre_departamento) VALUES ('Cundinamarca');
+INSERT INTO departamento(nombre_departamento) VALUES ('Guainía');
+INSERT INTO departamento(nombre_departamento) VALUES ('Guaviare');
+INSERT INTO departamento(nombre_departamento) VALUES ('Huila');
+INSERT INTO departamento(nombre_departamento) VALUES ('La Guajira');
+INSERT INTO departamento(nombre_departamento) VALUES ('Magdalena');
+INSERT INTO departamento(nombre_departamento) VALUES ('Meta');
+INSERT INTO departamento(nombre_departamento) VALUES ('Nariño');
+INSERT INTO departamento(nombre_departamento) VALUES ('Norte de Santander');
+INSERT INTO departamento(nombre_departamento) VALUES ('Putumayo');
+INSERT INTO departamento(nombre_departamento) VALUES ('Quindío');
+INSERT INTO departamento(nombre_departamento) VALUES ('Risaralda');
+INSERT INTO departamento(nombre_departamento) VALUES ('San Andrés y Providencia');
+INSERT INTO departamento(nombre_departamento) VALUES ('Santander');
+INSERT INTO departamento(nombre_departamento) VALUES ('Sucre');
+INSERT INTO departamento(nombre_departamento) VALUES ('Tolima');
+INSERT INTO departamento(nombre_departamento) VALUES ('Valle del Cauca');
+INSERT INTO departamento(nombre_departamento) VALUES ('Vaupés');
+INSERT INTO departamento(nombre_departamento) VALUES ('Vichada');
+
