@@ -19,7 +19,9 @@ CREATE TABLE usuarios(
 	contraseña character(80) NOT NULL,
 	fecha_creacion date NOT NULL,
 	fecha_nacimiento date NOT NULL,
+	numero_documento character(15) NOT NULL,
 	fk_oid_documento serial NOT NULL REFERENCES tipo_documento(oid_documento)	
+
 );
 
 -- create table roles
@@ -109,14 +111,23 @@ SELECT * FROM direccion;
 
 
 -- Table tipodocumento
-INSERT INTO tipodocumento(nombre_documento) VALUES ('Registro Civil');
-INSERT INTO tipodocumento(nombre_documento) VALUES ('Tarjeta de Identidad');
-INSERT INTO tipodocumento(nombre_documento) VALUES ('Cédula de Ciudadanía');
-INSERT INTO tipodocumento(nombre_documento) VALUES ('Tarjeta de Extranjería');
-INSERT INTO tipodocumento(nombre_documento) VALUES ('Cédula de Extranjería');
-INSERT INTO tipodocumento(nombre_documento) VALUES ('Pasaporte');
-INSERT INTO tipodocumento(nombre_documento) VALUES ('Documento de identificación extranjero');
-INSERT INTO tipodocumento(nombre_documento) VALUES ('NUIP');
+INSERT INTO tipo_documento(nombre_documento) VALUES ('Registro Civil');
+INSERT INTO tipo_documento(nombre_documento) VALUES ('Tarjeta de Identidad');
+INSERT INTO tipo_documento(nombre_documento) VALUES ('Cédula de Ciudadanía');
+INSERT INTO tipo_documento(nombre_documento) VALUES ('Tarjeta de Extranjería');
+INSERT INTO tipo_documento(nombre_documento) VALUES ('Cédula de Extranjería');
+INSERT INTO tipo_documento(nombre_documento) VALUES ('Pasaporte');
+INSERT INTO tipo_documento(nombre_documento) VALUES ('Documento de identificación extranjero');
+INSERT INTO tipo_documento(nombre_documento) VALUES ('NUIP');
+
+
+-- table usuarios
+INSERT INTO usuarios(nombres_usuario,apellidos_usuario,fk_oid_documento,numero_documento,email,contraseña,fecha_creacion,fecha_nacimiento) 
+				   VALUES ('Duvan Dario','Castro Bautista',3,'1098790288','duvancastro1026@gmail.com','admin',DATE '2023-04-27', DATE '1996-10-26');
+INSERT INTO usuarios(nombres_usuario,apellidos_usuario,fk_oid_documento,numero_documento,email,contraseña,fecha_creacion,fecha_nacimiento) 
+				   VALUES ('Leidy','Reyes',3,'1098903223','leidyreyes03@gmail.com','admin1',DATE '2023-04-27', DATE '1996-12-15');
+
+
 
 -- Table roles
 INSERT INTO roles(nombre_rol) VALUES ('user');   -- usuarios
