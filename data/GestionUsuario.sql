@@ -138,3 +138,9 @@ INSERT INTO usuarios_roles(oid_usuario, oid_rol) VALUES (1,1);
 INSERT INTO usuarios_roles(oid_usuario, oid_rol) VALUES (1,2);
 INSERT INTO usuarios_roles(oid_usuario, oid_rol) VALUES (1,3);
 INSERT INTO usuarios_roles(oid_usuario, oid_rol) VALUES (2,1);
+
+-- tabla medios_pagos
+INSERT INTO medios_pagos VALUES (1,'Duvan','Castro','1233-555-2225-0233','10/27',1);
+INSERT INTO medios_pagos( oid_medios_pagos,nombre_titular,apellido_titular, numero_tarjeta,fecha_vencimiento,fk_oid_usuario)
+					VALUES (2,'Leidy','Reyes','2222-888-999-5263', '08/28',2 );
+
