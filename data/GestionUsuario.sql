@@ -128,10 +128,13 @@ INSERT INTO usuarios(nombres_usuario,apellidos_usuario,fk_oid_documento,numero_d
 				   VALUES ('Leidy','Reyes',3,'1098903223','leidyreyes03@gmail.com','admin1',DATE '2023-04-27', DATE '1996-12-15');
 
 
-
 -- Table roles
 INSERT INTO roles(nombre_rol) VALUES ('user');   -- usuarios
 INSERT INTO roles(nombre_rol) VALUES ('agent');	 -- vendedores
 INSERT INTO roles(nombre_rol) VALUES ('admin');  -- administradores
 
---
+-- Table usuarios_roles
+INSERT INTO usuarios_roles(oid_usuario, oid_rol) VALUES (1,1);
+INSERT INTO usuarios_roles(oid_usuario, oid_rol) VALUES (1,2);
+INSERT INTO usuarios_roles(oid_usuario, oid_rol) VALUES (1,3);
+INSERT INTO usuarios_roles(oid_usuario, oid_rol) VALUES (2,1);
