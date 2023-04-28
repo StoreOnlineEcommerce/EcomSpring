@@ -230,3 +230,18 @@ INSERT INTO municipio(nombre_municipio,fk_oid_departamento) VALUES ('Bogotá',14
 INSERT INTO municipio(nombre_municipio,fk_oid_departamento) VALUES ('Soacha',14);
 INSERT INTO municipio(nombre_municipio,fk_oid_departamento) VALUES ('Chía',14);
 INSERT INTO municipio(nombre_municipio,fk_oid_departamento) VALUES ('Funza',14);
+
+-- table tipocalle
+INSERT INTO tipocalle(nombre_calle) VALUES('Avenida');
+INSERT INTO tipocalle(nombre_calle) VALUES('Autopista');
+INSERT INTO tipocalle(nombre_calle) VALUES('Calle');
+INSERT INTO tipocalle(nombre_calle) VALUES('Carrera');
+INSERT INTO tipocalle(nombre_calle) VALUES('Circular');
+INSERT INTO tipocalle(nombre_calle) VALUES('Circunvalar');
+INSERT INTO tipocalle(nombre_calle) VALUES('Diagonal');
+INSERT INTO tipocalle(nombre_calle) VALUES('Manzana');
+INSERT INTO tipocalle(nombre_calle) VALUES('Tranversal');
+INSERT INTO tipocalle(nombre_calle) VALUES('Troncal');
+INSERT INTO tipocalle(nombre_calle) VALUES('Via');
+INSERT INTO tipocalle(nombre_calle) VALUES('Variante');
+
