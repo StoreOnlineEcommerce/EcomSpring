@@ -2312,7 +2312,7 @@
 										"$ref": "AAAAAAGHvya6J6SWVaM="
 									},
 									"name": "fk_oid_documento",
-									"type": "serial",
+									"type": "integer",
 									"length": 0,
 									"foreignKey": true
 								},
@@ -2586,7 +2586,7 @@
 										"$ref": "AAAAAAGHvzNiHqUdGMc="
 									},
 									"name": "oid_usuario",
-									"type": "bigserial",
+									"type": "bigint",
 									"length": 0,
 									"foreignKey": true
 								},
@@ -2597,7 +2597,7 @@
 										"$ref": "AAAAAAGHvzNiHqUdGMc="
 									},
 									"name": "oid_rol",
-									"type": "serial",
+									"type": "integer",
 									"length": 0,
 									"foreignKey": true
 								}
@@ -2707,7 +2707,7 @@
 										"$ref": "AAAAAAGHvzvi6KV3Oxk="
 									},
 									"name": "fk_oid_usuario",
-									"type": "bigserial",
+									"type": "bigint",
 									"length": 0,
 									"foreignKey": true
 								},
@@ -2846,7 +2846,7 @@
 										"$ref": "AAAAAAGHv0ZefaX29RI="
 									},
 									"name": "fk_oid_departamento",
-									"type": "serial",
+									"type": "integer",
 									"length": 0,
 									"foreignKey": true
 								}
@@ -2970,7 +2970,7 @@
 										"$ref": "AAAAAAGHv1bu/KZ+wFw="
 									},
 									"name": "fk_oid_usuario",
-									"type": "bigserial",
+									"type": "bigint",
 									"length": 0,
 									"foreignKey": true
 								},
@@ -3051,7 +3051,7 @@
 										"$ref": "AAAAAAGHv1bu/KZ+wFw="
 									},
 									"name": "fk_oid_tipo_vivienda",
-									"type": "serial",
+									"type": "integer",
 									"length": 0,
 									"foreignKey": true
 								},
@@ -3062,7 +3062,7 @@
 										"$ref": "AAAAAAGHv1bu/KZ+wFw="
 									},
 									"name": "fk_oid_municipio",
-									"type": "serial",
+									"type": "integer",
 									"length": 0,
 									"foreignKey": true
 								},
@@ -3073,7 +3073,7 @@
 										"$ref": "AAAAAAGHv1bu/KZ+wFw="
 									},
 									"name": "fk_oid_tipo_calle",
-									"type": "serial",
+									"type": "integer",
 									"length": 0,
 									"foreignKey": true
 								},
