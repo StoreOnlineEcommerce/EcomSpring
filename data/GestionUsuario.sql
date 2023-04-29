@@ -18,9 +18,9 @@ CREATE TABLE usuarios(
 	email character(80) NOT NULL,
 	contraseña character(80) NOT NULL,
 	fecha_creacion date NOT NULL,
-	fecha_nacimiento date NOT NULL,
-	numero_documento character(15) NOT NULL,
-	fk_oid_documento serial NOT NULL REFERENCES tipo_documento(oid_documento)	
+	fecha_nacimiento date,
+	numero_documento character(15),
+	fk_oid_documento integer REFERENCES tipo_documento(oid_documento)	
 
 );
 
@@ -33,8 +33,8 @@ CREATE TABLE roles(
 -- create table usuarios_roles
 CREATE TABLE usuarios_roles(
 	oid_usuario_roles serial PRIMARY KEY NOT NULL,
-	oid_usuario bigserial NOT NULL REFERENCES usuarios(oid_usuario),
-	oid_rol serial NOT NULL REFERENCES roles(oid_rol)
+	oid_usuario bigint NOT NULL REFERENCES usuarios(oid_usuario),
+	oid_rol integer NOT NULL REFERENCES roles(oid_rol)
 );
 
 -- create table medios_pagos
@@ -44,7 +44,7 @@ CREATE TABLE medios_pagos(
 	apellido_titular character(50) NOT NULL,
 	numero_tarjeta character(60) NOT NULL,
 	fecha_vencimiento character(5) NOT NULL,
-	fk_oid_usuario bigserial NOT NULL REFERENCES usuarios(oid_usuario)
+	fk_oid_usuario bigint NOT NULL REFERENCES usuarios(oid_usuario)
 );
 
 -- create table tipo_vivienda
@@ -63,7 +63,7 @@ CREATE TABLE departamento(
 CREATE TABLE  municipio(
 	oid_municipio serial PRIMARY KEY NOT NULL,
 	nombre_municipio character(60) NOT NULL,
-	fk_oid_departamento serial NOT NULL REFERENCES departamento(oid_departamento)
+	fk_oid_departamento integer NOT NULL REFERENCES departamento(oid_departamento)
 );
 
 -- create table tipocalle
@@ -75,14 +75,14 @@ CREATE TABLE tipocalle(
 -- create table direccion
 CREATE TABLE direccion(
 	oid_direccion bigserial PRIMARY KEY NOT NULL,
-	fk_oid_usuario bigserial NOT NULL REFERENCES usuarios(oid_usuario),
+	fk_oid_usuario bigint NOT NULL REFERENCES usuarios(oid_usuario),
 	numero character(10) NOT NULL,
 	interior character(10),
 	complemento character(50),
 	codigo_postal character(10),
-	fk_oid_tipo_vivienda serial NOT NULL REFERENCES tipo_vivienda(oid_tipo_vivienda),
-	fk_oid_municipio serial NOT NULL REFERENCES municipio(oid_municipio),
-	fk_oid_tipo_calle serial NOT NULL REFERENCES tipocalle(oid_tipo_calle)
+	fk_oid_tipo_vivienda integer NOT NULL REFERENCES tipo_vivienda(oid_tipo_vivienda),
+	fk_oid_municipio integer NOT NULL REFERENCES municipio(oid_municipio),
+	fk_oid_tipo_calle integer NOT NULL REFERENCES tipocalle(oid_tipo_calle)
 );
 
 
@@ -126,7 +126,8 @@ INSERT INTO usuarios(nombres_usuario,apellidos_usuario,fk_oid_documento,numero_d
 				   VALUES ('Duvan Dario','Castro Bautista',3,'1098790288','duvancastro1026@gmail.com','admin',DATE '2023-04-27', DATE '1996-10-26');
 INSERT INTO usuarios(nombres_usuario,apellidos_usuario,fk_oid_documento,numero_documento,email,contraseña,fecha_creacion,fecha_nacimiento) 
 				   VALUES ('Leidy','Reyes',3,'1098903223','leidyreyes03@gmail.com','admin1',DATE '2023-04-27', DATE '1996-12-15');
-
+INSERT INTO usuarios(nombres_usuario,apellidos_usuario,email,contraseña,fecha_creacion)
+					VALUES ('Emily','Bautista','emilybautista@gmail','emily12',DATE '2023-04-29');
 
 -- Table roles
 INSERT INTO roles(nombre_rol) VALUES ('user');   -- usuarios
@@ -138,11 +139,15 @@ INSERT INTO usuarios_roles(oid_usuario, oid_rol) VALUES (1,1);
 INSERT INTO usuarios_roles(oid_usuario, oid_rol) VALUES (1,2);
 INSERT INTO usuarios_roles(oid_usuario, oid_rol) VALUES (1,3);
 INSERT INTO usuarios_roles(oid_usuario, oid_rol) VALUES (2,1);
+INSERT INTO usuarios_roles(oid_usuario, oid_rol) VALUES (3,1);
+INSERT INTO usuarios_roles(oid_usuario, oid_rol) VALUES (3,2);
 
 -- tabla medios_pagos
-INSERT INTO medios_pagos VALUES (1,'Duvan','Castro','1233-555-2225-0233','10/27',1);
-INSERT INTO medios_pagos( oid_medios_pagos,nombre_titular,apellido_titular, numero_tarjeta,fecha_vencimiento,fk_oid_usuario)
-					VALUES (2,'Leidy','Reyes','2222-888-999-5263', '08/28',2 );
+INSERT INTO medios_pagos(nombre_titular,apellido_titular,numero_tarjeta,fecha_vencimiento,fk_oid_usuario) VALUES ('Duvan','Castro','1233-555-2225-0233','10/27',1);
+INSERT INTO medios_pagos(nombre_titular,apellido_titular,numero_tarjeta,fecha_vencimiento,fk_oid_usuario) VALUES ('Duvan','Castro','6532-859-7895-1123','01/28',1);
+INSERT INTO medios_pagos(nombre_titular,apellido_titular,numero_tarjeta,fecha_vencimiento,fk_oid_usuario) VALUES ('Leidy','Reyes','2235-785-5563-3321','02/27',2);
+INSERT INTO medios_pagos(nombre_titular,apellido_titular,numero_tarjeta,fecha_vencimiento,fk_oid_usuario) VALUES ('Emily','Bautista','1112-859-7895-8956','01/28',3);
+INSERT INTO medios_pagos(nombre_titular,apellido_titular,numero_tarjeta,fecha_vencimiento,fk_oid_usuario) VALUES ('Emily','Bautista','3362-756-8895-2231','01/28',3);
 
 -- table tipo_vivienda
 INSERT INTO tipo_vivienda(nombre_vivienda) VALUES ('casa');
