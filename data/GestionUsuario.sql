@@ -95,9 +95,9 @@ CREATE TABLE direccion(
 -- check  of the tables
 SELECT * FROM tipo_documento;
 SELECT * FROM usuarios;
-SELECT * FROM roles;
-SELECT * FROM usuarios_roles;
-SELECT * FROM medios_pagos;
+SELECT * FROM roles; 
+SELECT * FROM usuarios_roles; -- relacionar con roles y usuario
+SELECT * FROM medios_pagos;  -- relacionar con usuario
 SELECT * FROM tipo_vivienda;
 SELECT * FROM departamento;
 SELECT * FROM municipio;
@@ -151,6 +151,7 @@ INSERT INTO medios_pagos(nombre_titular,apellido_titular,numero_tarjeta,fecha_ve
 
 -- table tipo_vivienda
 INSERT INTO tipo_vivienda(nombre_vivienda) VALUES ('casa');
+INSERT INTO tipo_vivienda(nombre_vivienda) VALUES ('apartaestudio');
 INSERT INTO tipo_vivienda(nombre_vivienda) VALUES ('apartamento');
 INSERT INTO tipo_vivienda(nombre_vivienda) VALUES ('duplex');
 INSERT INTO tipo_vivienda(nombre_vivienda) VALUES ('casa movil');
@@ -189,52 +190,25 @@ INSERT INTO departamento(nombre_departamento) VALUES ('Tolima');
 INSERT INTO departamento(nombre_departamento) VALUES ('Valle del Cauca');
 INSERT INTO departamento(nombre_departamento) VALUES ('Vaupés');
 INSERT INTO departamento(nombre_departamento) VALUES ('Vichada');
+INSERT INTO departamento(nombre_departamento) VALUES ('Bogotá D.C.');
 
 -- table municipio
 
+-- departamento amazonas
 INSERT INTO municipio(nombre_municipio,fk_oid_departamento) VALUES ('Leticia',1);
-INSERT INTO municipio(nombre_municipio,fk_oid_departamento) VALUES ('Puerto Nariño,',1);
+INSERT INTO municipio(nombre_municipio,fk_oid_departamento) VALUES ('Puerto Nariño',1);
+INSERT INTO municipio(nombre_municipio,fk_oid_departamento) VALUES ('La Chorrera',1);
+INSERT INTO municipio(nombre_municipio,fk_oid_departamento) VALUES ('El Encanto',1);
+INSERT INTO municipio(nombre_municipio,fk_oid_departamento) VALUES ('La Pedrera',1);
+INSERT INTO municipio(nombre_municipio,fk_oid_departamento) VALUES ('La Victoria',1);
+INSERT INTO municipio(nombre_municipio,fk_oid_departamento) VALUES ('Miriti-Parana',1);
+INSERT INTO municipio(nombre_municipio,fk_oid_departamento) VALUES ('Puerto Alegría',1);
+INSERT INTO municipio(nombre_municipio,fk_oid_departamento) VALUES ('Puerto Arica',1);
+INSERT INTO municipio(nombre_municipio,fk_oid_departamento) VALUES ('Puerto Santander',1);
 INSERT INTO municipio(nombre_municipio,fk_oid_departamento) VALUES ('Tarapacá',1);
-INSERT INTO municipio(nombre_municipio,fk_oid_departamento) VALUES ('Medellín',2);
-INSERT INTO municipio(nombre_municipio,fk_oid_departamento) VALUES ('Envigado',2);
-INSERT INTO municipio(nombre_municipio,fk_oid_departamento) VALUES ('Itagüí',2);
-INSERT INTO municipio(nombre_municipio,fk_oid_departamento) VALUES ('Arauca',3);
-INSERT INTO municipio(nombre_municipio,fk_oid_departamento) VALUES ('Saravena',3);
-INSERT INTO municipio(nombre_municipio,fk_oid_departamento) VALUES ('Tame',3);
-INSERT INTO municipio(nombre_municipio,fk_oid_departamento) VALUES ('Barranquilla',4);
-INSERT INTO municipio(nombre_municipio,fk_oid_departamento) VALUES ('Soledad',4);
-INSERT INTO municipio(nombre_municipio,fk_oid_departamento) VALUES ('Malambo',4);
-INSERT INTO municipio(nombre_municipio,fk_oid_departamento) VALUES ('Cartagena',5);
-INSERT INTO municipio(nombre_municipio,fk_oid_departamento) VALUES ('Turbaco',5);
-INSERT INTO municipio(nombre_municipio,fk_oid_departamento) VALUES ('Magangué',5);
-INSERT INTO municipio(nombre_municipio,fk_oid_departamento) VALUES ('Tunja',6);
-INSERT INTO municipio(nombre_municipio,fk_oid_departamento) VALUES ('Duitama',6);
-INSERT INTO municipio(nombre_municipio,fk_oid_departamento) VALUES ('Sogamoso',6);
-INSERT INTO municipio(nombre_municipio,fk_oid_departamento) VALUES ('Manizales',7);
-INSERT INTO municipio(nombre_municipio,fk_oid_departamento) VALUES ('Villamaría',7);
-INSERT INTO municipio(nombre_municipio,fk_oid_departamento) VALUES ('Chinchiná',7);
-INSERT INTO municipio(nombre_municipio,fk_oid_departamento) VALUES ('Florencia',8);
-INSERT INTO municipio(nombre_municipio,fk_oid_departamento) VALUES ('San Vicente del Caguán',8);
-INSERT INTO municipio(nombre_municipio,fk_oid_departamento) VALUES ('Puerto Rico',8);
-INSERT INTO municipio(nombre_municipio,fk_oid_departamento) VALUES ('Yopal',9);
-INSERT INTO municipio(nombre_municipio,fk_oid_departamento) VALUES ('Aguazul',9);
-INSERT INTO municipio(nombre_municipio,fk_oid_departamento) VALUES ('Villanueva',9);
-INSERT INTO municipio(nombre_municipio,fk_oid_departamento) VALUES ('Popayán',10);
-INSERT INTO municipio(nombre_municipio,fk_oid_departamento) VALUES ('Santander de Quilichao',10);
-INSERT INTO municipio(nombre_municipio,fk_oid_departamento) VALUES ('Piendamó',10);
-INSERT INTO municipio(nombre_municipio,fk_oid_departamento) VALUES ('Valledupar',11);
-INSERT INTO municipio(nombre_municipio,fk_oid_departamento) VALUES ('Aguachica',11);
-INSERT INTO municipio(nombre_municipio,fk_oid_departamento) VALUES ('San Alberto',11);
-INSERT INTO municipio(nombre_municipio,fk_oid_departamento) VALUES ('Quibdó',12);
-INSERT INTO municipio(nombre_municipio,fk_oid_departamento) VALUES ('Condoto',12);
-INSERT INTO municipio(nombre_municipio,fk_oid_departamento) VALUES ('Istmina',12);
-INSERT INTO municipio(nombre_municipio,fk_oid_departamento) VALUES ('Montería',13);
-INSERT INTO municipio(nombre_municipio,fk_oid_departamento) VALUES ('Cereté',13);
-INSERT INTO municipio(nombre_municipio,fk_oid_departamento) VALUES ('Lorica',13);
-INSERT INTO municipio(nombre_municipio,fk_oid_departamento) VALUES ('Bogotá',14);
-INSERT INTO municipio(nombre_municipio,fk_oid_departamento) VALUES ('Soacha',14);
-INSERT INTO municipio(nombre_municipio,fk_oid_departamento) VALUES ('Chía',14);
-INSERT INTO municipio(nombre_municipio,fk_oid_departamento) VALUES ('Funza',14);
+
+-- Export table municipio por departamento ( repository , change file path )
+COPY municipio FROM 'D:\DUVAN\CURSOS\JAVA_SprintBoot\Projects\E-commerce\GestionUsuarios\data\municipios_X_departamento_data.csv' DELIMITER ',' CSV HEADER;
 
 -- table tipocalle
 INSERT INTO tipocalle(nombre_calle) VALUES('Avenida');
