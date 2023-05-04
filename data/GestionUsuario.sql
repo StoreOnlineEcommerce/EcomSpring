@@ -77,6 +77,7 @@ CREATE TABLE direccion(
 	oid_direccion bigserial PRIMARY KEY NOT NULL,
 	fk_oid_usuario bigint NOT NULL REFERENCES usuarios(oid_usuario),
 	numero character(10) NOT NULL,
+	numero_secundario character(10) NOT NULL,
 	interior character(10),
 	complemento character(50),
 	codigo_postal character(10),
@@ -224,3 +225,10 @@ INSERT INTO tipocalle(nombre_calle) VALUES('Troncal');
 INSERT INTO tipocalle(nombre_calle) VALUES('Via');
 INSERT INTO tipocalle(nombre_calle) VALUES('Variante');
 
+-- table direccion
+INSERT INTO direccion(fk_oid_usuario, fk_oid_tipo_calle, numero, numero_secundario, fk_oid_tipo_vivienda, codigo_postal,fk_oid_municipio)
+					VALUES(1,7,'87g','90-27',1,'600012',1123);
+INSERT INTO direccion(fk_oid_usuario, fk_oid_tipo_calle, numero, numero_secundario, fk_oid_tipo_vivienda,interior, codigo_postal,fk_oid_municipio)
+					VALUES(2,7,'87g','90-27',1,'piso 1','600012',1123);
+INSERT INTO direccion(fk_oid_usuario, fk_oid_tipo_calle, numero, numero_secundario, fk_oid_tipo_vivienda,interior,complemento, codigo_postal,fk_oid_municipio)
+					VALUES(2,7,'87g','90-27',1,'piso 1','barrio la serena, localidad engativa','600012',1123);
