@@ -3988,7 +3988,7 @@
 											"font": "Arial;13;1",
 											"left": 1672,
 											"top": 757,
-											"width": 224,
+											"width": 240.18994140625,
 											"height": 13,
 											"text": "use_coupons"
 										},
@@ -4014,7 +4014,7 @@
 													"font": "Arial;13;0",
 													"left": 1677,
 													"top": 780,
-													"width": 214,
+													"width": 230.18994140625,
 													"height": 13
 												},
 												{
@@ -4029,7 +4029,7 @@
 													"font": "Arial;13;0",
 													"left": 1677,
 													"top": 795,
-													"width": 214,
+													"width": 230.18994140625,
 													"height": 13
 												},
 												{
@@ -4044,21 +4044,21 @@
 													"font": "Arial;13;0",
 													"left": 1677,
 													"top": 810,
-													"width": 214,
+													"width": 230.18994140625,
 													"height": 13
 												}
 											],
 											"font": "Arial;13;0",
 											"left": 1672,
 											"top": 775,
-											"width": 224,
+											"width": 240.18994140625,
 											"height": 53
 										}
 									],
 									"font": "Arial;13;0",
 									"left": 1672,
 									"top": 752,
-									"width": 224,
+									"width": 240.18994140625,
 									"height": 81,
 									"nameLabel": {
 										"$ref": "AAAAAAGH7BwZa6IgcvU="
@@ -4310,9 +4310,9 @@
 												"$ref": "AAAAAAGH7CAaIqJnC+M="
 											},
 											"font": "Arial;13;1",
-											"left": 1664,
-											"top": 1133,
-											"width": 192,
+											"left": 1656,
+											"top": 1149,
+											"width": 230.79541015625,
 											"height": 13,
 											"text": "product_coupon"
 										},
@@ -4336,24 +4336,54 @@
 														"$ref": "AAAAAAGH7CBKhaJyvSM="
 													},
 													"font": "Arial;13;0",
-													"left": 1669,
-													"top": 1156,
-													"width": 182,
+													"left": 1661,
+													"top": 1172,
+													"width": 220.79541015625,
+													"height": 13
+												},
+												{
+													"_type": "ERDColumnView",
+													"_id": "AAAAAAGH7E90YaNfoZw=",
+													"_parent": {
+														"$ref": "AAAAAAGH7CAaI6JpHKw="
+													},
+													"model": {
+														"$ref": "AAAAAAGH7E90UqNc5ww="
+													},
+													"font": "Arial;13;0",
+													"left": 1661,
+													"top": 1187,
+													"width": 220.79541015625,
+													"height": 13
+												},
+												{
+													"_type": "ERDColumnView",
+													"_id": "AAAAAAGH7FBjCaNmNgI=",
+													"_parent": {
+														"$ref": "AAAAAAGH7CAaI6JpHKw="
+													},
+													"model": {
+														"$ref": "AAAAAAGH7FBjAKNjgc0="
+													},
+													"font": "Arial;13;0",
+													"left": 1661,
+													"top": 1202,
+													"width": 220.79541015625,
 													"height": 13
 												}
 											],
 											"font": "Arial;13;0",
-											"left": 1664,
-											"top": 1151,
-											"width": 192,
-											"height": 23
+											"left": 1656,
+											"top": 1167,
+											"width": 230.79541015625,
+											"height": 53
 										}
 									],
 									"font": "Arial;13;0",
-									"left": 1664,
-									"top": 1128,
-									"width": 192,
-									"height": 96,
+									"left": 1656,
+									"top": 1144,
+									"width": 230.79541015625,
+									"height": 81,
 									"nameLabel": {
 										"$ref": "AAAAAAGH7CAaI6Jojbo="
 									},
@@ -4458,17 +4488,18 @@
 											"_parent": {
 												"$ref": "AAAAAAGH7CFlPaKZXmM="
 											},
-											"visible": false,
 											"font": "Arial;13;0",
-											"left": 1614,
-											"top": 1097,
+											"left": 1518,
+											"top": 1128,
+											"width": 142.37158203125,
 											"height": 13,
-											"alpha": 1.5707963267948966,
-											"distance": 15,
+											"alpha": -0.6659689743100066,
+											"distance": 17.804493814764857,
 											"hostEdge": {
 												"$ref": "AAAAAAGH7CFlPaKZXmM="
 											},
-											"edgePosition": 1
+											"edgePosition": 1,
+											"text": "fk_products_oid_product"
 										},
 										{
 											"_type": "EdgeLabelView",
@@ -4494,8 +4525,8 @@
 												"$ref": "AAAAAAGH7CFlPaKZXmM="
 											},
 											"font": "Arial;13;0",
-											"left": 1638,
-											"top": 1123,
+											"left": 1630,
+											"top": 1155,
 											"height": 13,
 											"alpha": -0.5235987755982988,
 											"distance": 30,
@@ -4512,7 +4543,7 @@
 										"$ref": "AAAAAAGH6yldAq9pZPI="
 									},
 									"lineStyle": 2,
-									"points": "1570:1064;1600:1064;1600:1144;1664:1144",
+									"points": "1570:1064;1600:1064;1600:1176;1656:1176",
 									"nameLabel": {
 										"$ref": "AAAAAAGH7CFlPaKaE88="
 									},
@@ -4620,17 +4651,18 @@
 											"_parent": {
 												"$ref": "AAAAAAGH7CHZ5KLGQLo="
 											},
-											"visible": false,
 											"font": "Arial;13;0",
-											"left": 1776,
-											"top": 1076,
+											"left": 1703,
+											"top": 1084,
+											"width": 147.44970703125,
 											"height": 13,
 											"alpha": 1.5707963267948966,
 											"distance": 15,
 											"hostEdge": {
 												"$ref": "AAAAAAGH7CHZ5KLGQLo="
 											},
-											"edgePosition": 1
+											"edgePosition": 1,
+											"text": "fk_coupons_oid_coupons"
 										},
 										{
 											"_type": "EdgeLabelView",
@@ -4657,7 +4689,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 1777,
-											"top": 1096,
+											"top": 1112,
 											"height": 13,
 											"alpha": -0.5235987755982988,
 											"distance": 30,
@@ -4674,7 +4706,7 @@
 										"$ref": "AAAAAAGH7ByA7aI2/m4="
 									},
 									"lineStyle": 2,
-									"points": "1762:1039;1762:1128",
+									"points": "1762:1039;1762:1144",
 									"nameLabel": {
 										"$ref": "AAAAAAGH7CHZ5KLHhzw="
 									},
@@ -6582,6 +6614,7 @@
 									"_parent": {
 										"$ref": "AAAAAAGH6yldAa9nLnc="
 									},
+									"name": "fk_products_oid_product",
 									"end1": {
 										"_type": "ERDRelationshipEnd",
 										"_id": "AAAAAAGH7CFlPKKWDQU=",
@@ -6958,7 +6991,7 @@
 									"_parent": {
 										"$ref": "AAAAAAGH7BwZa6Id/Lg="
 									},
-									"name": "oid_coupons.bigint",
+									"name": "fk_oid_coupons.bigint",
 									"length": 0,
 									"foreignKey": true
 								},
@@ -6968,7 +7001,7 @@
 									"_parent": {
 										"$ref": "AAAAAAGH7BwZa6Id/Lg="
 									},
-									"name": "oid_orders_details",
+									"name": "fk_oid_orders_details",
 									"type": "biginit",
 									"length": 0,
 									"foreignKey": true
@@ -7017,6 +7050,7 @@
 									"_parent": {
 										"$ref": "AAAAAAGH7ByA7KI0Raw="
 									},
+									"name": "fk_coupons_oid_coupons",
 									"end1": {
 										"_type": "ERDRelationshipEnd",
 										"_id": "AAAAAAGH7CHZ5KLD8uc=",
@@ -7174,7 +7208,32 @@
 									"_parent": {
 										"$ref": "AAAAAAGH7CAaIqJlLCI="
 									},
-									"name": "Column1"
+									"name": "oid_product_coupon",
+									"type": "bigserial",
+									"length": 0,
+									"primaryKey": true
+								},
+								{
+									"_type": "ERDColumn",
+									"_id": "AAAAAAGH7E90UqNc5ww=",
+									"_parent": {
+										"$ref": "AAAAAAGH7CAaIqJlLCI="
+									},
+									"name": "fk_oid_products",
+									"type": "biginit",
+									"length": 0,
+									"foreignKey": true
+								},
+								{
+									"_type": "ERDColumn",
+									"_id": "AAAAAAGH7FBjAKNjgc0=",
+									"_parent": {
+										"$ref": "AAAAAAGH7CAaIqJlLCI="
+									},
+									"name": "fk_oid_coupons",
+									"type": "biginit",
+									"length": 0,
+									"foreignKey": true
 								}
 							]
 						}
