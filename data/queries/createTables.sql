@@ -3,89 +3,104 @@
 ------------------------------------------------------------------------------------
 
 
--- Create Table for the document type
-CREATE TABLE tipo_documento(  
-	oid_documento serial PRIMARY KEY NOT NULL,
-	nombre_documento character(60) NOT NULL
+-- Create Table for the document_type
+CREATE TABLE document_type(  
+	oid_document serial PRIMARY KEY NOT NULL,
+	document_name character(60) NOT NULL
 );
 
--- Create Table of the user
-CREATE TABLE usuarios(
-	oid_usuario bigserial PRIMARY KEY NOT NULL,
-	nombres_usuario character(50),
-	apellidos_usuario character(50),
-	celular character(15),
-	email character(80) NOT NULL,
-	contraseña character(80) NOT NULL,
-	fecha_creacion date NOT NULL,
-	fecha_nacimiento date,
-	numero_documento character(15),
-	fk_oid_documento integer REFERENCES tipo_documento(oid_documento)	
-
+-- Create Table of the user_system
+CREATE TABLE user_system(
+	oid_user_system bigserial PRIMARY KEY NOT NULL,
+	fk_oid_document integer REFERENCES document_type(oid_document),
+	user_name character(80),
+	user_last_name character(80),
+	document_number character(15),
+	cell_phone character(15),
+	user_email character(80) NOT NULL,
+	user_password character(80) NOT NULL,
+	creation_date date NOT NULL,
+	birth_date date
 );
 
 -- create table roles
 CREATE TABLE roles(
-	oid_rol serial PRIMARY KEY NOT NULL,
-	nombre_rol character(10) NOT NULL
+	oid_role serial PRIMARY KEY NOT NULL,
+	role_name character(10) NOT NULL
 );
 
--- create table usuarios_roles
-CREATE TABLE usuarios_roles(
-	oid_usuario_roles serial PRIMARY KEY NOT NULL,
-	oid_usuario bigint NOT NULL REFERENCES usuarios(oid_usuario),
-	oid_rol integer NOT NULL REFERENCES roles(oid_rol)
+
+-- create table user_roles
+CREATE TABLE user_roles(
+	oid_user_roles serial PRIMARY KEY NOT NULL,
+	fk_oid_user_system bigint NOT NULL REFERENCES user_system(oid_user_system),
+	fk_oid_role integer NOT NULL REFERENCES roles(oid_role)
 );
 
--- create table medios_pagos
-CREATE TABLE medios_pagos(
-	oid_medios_pagos bigserial PRIMARY KEY NOT NULL,
-	nombre_titular character(50) NOT NULL,
-	apellido_titular character(50) NOT NULL,
-	numero_tarjeta character(60) NOT NULL,
-	fecha_vencimiento character(5) NOT NULL,
-	fk_oid_usuario bigint NOT NULL REFERENCES usuarios(oid_usuario)
+-- create table provider_oauth2
+CREATE TABLE provider_oauth2(
+	oid_provider_oauth2 serial PRIMARY KEY NOT NULL,
+	provider_name character(40)
 );
 
--- create table tipo_vivienda
-CREATE TABLE tipo_vivienda(
-	oid_tipo_vivienda serial PRIMARY KEY NOT NULL,
-	nombre_vivienda character(40) NOT NULL
+-- create table oauth2
+CREATE TABLE oauth2(
+	oid_oauth2 serial PRIMARY KEY NOT NULL,
+	fk_oid_user_system bigint NOT NULL,
+	fk_oid_provider integer NOT NULL,
+	oauth2_token character(80)
 );
 
--- create table departamento
-CREATE TABLE departamento(
-	oid_departamento serial PRIMARY KEY NOT NULL,
+
+-- create table type_housing
+CREATE TABLE type_housing(
+	oid_type_housing serial PRIMARY KEY NOT NULL,
+	housing_name character(40) NOT NULL
+);
+
+-- create table street_type
+CREATE TABLE street_type(
+	oid_street_type serial PRIMARY KEY NOT NULL,
+	street_name character(50) NOT NULL
+);
+
+-- create table departament
+CREATE TABLE departament(
+	oid_departament serial PRIMARY KEY NOT NULL,
 	nombre_departamento character(60) NOT NULL
 );
 
--- create table municipio
-CREATE TABLE  municipio(
-	oid_municipio serial PRIMARY KEY NOT NULL,
-	nombre_municipio character(60) NOT NULL,
-	fk_oid_departamento integer NOT NULL REFERENCES departamento(oid_departamento)
+-- create table municipality
+CREATE TABLE  municipality(
+	oid_municipality serial PRIMARY KEY NOT NULL,
+	fk_oid_departament integer NOT NULL REFERENCES departament(oid_departament),
+	municipality_name character(60) NOT NULL
 );
 
--- create table tipocalle
-CREATE TABLE tipocalle(
-	oid_tipo_calle serial PRIMARY KEY NOT NULL,
-	nombre_calle character(50) NOT NULL
-);
-
--- create table direccion
-CREATE TABLE direccion(
-	oid_direccion bigserial PRIMARY KEY NOT NULL,
-	fk_oid_usuario bigint NOT NULL REFERENCES usuarios(oid_usuario),
-	numero character(10) NOT NULL,
-	numero_secundario character(10) NOT NULL,
+-- create table address
+CREATE TABLE address(
+	oid_address bigserial PRIMARY KEY NOT NULL,
+	fk_oid_user_system bigint NOT NULL REFERENCES user_system(oid_user_system),
+	fk_oid_type_housting integer NOT NULL REFERENCES type_housing(oid_type_housing),
+	fk_oid_municipality integer NOT NULL REFERENCES municipality(oid_municipality),
+	fk_oid_street_type integer NOT NULL REFERENCES street_type(oid_street_type),
+	address_number character(10) NOT NULL,
+	address_secondary_number character(10) NOT NULL,
 	interior character(10),
-	complemento character(50),
-	codigo_postal character(10),
-	fk_oid_tipo_vivienda integer NOT NULL REFERENCES tipo_vivienda(oid_tipo_vivienda),
-	fk_oid_municipio integer NOT NULL REFERENCES municipio(oid_municipio),
-	fk_oid_tipo_calle integer NOT NULL REFERENCES tipocalle(oid_tipo_calle)
+	complement character(50),
+	postal_code character(10)
 );
 
+
+-- create table means_payments
+CREATE TABLE means_payments(
+	oid_means_payments bigserial PRIMARY KEY NOT NULL,
+	fk_oid_user_system bigint NOT NULL REFERENCES user_system(oid_user_system),
+	owner_name character(50) NOT NULL,
+	owner_last_name character(50) NOT NULL,
+	card_number character(60) NOT NULL,
+	expiration_date character(5) NOT NULL
+);
 
 
 ------------------------------------------------------------------------------------
