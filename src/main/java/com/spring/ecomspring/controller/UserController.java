@@ -20,6 +20,12 @@ public class UserController {
         this.userRepository = userRepository;
     }
 
+
+    @GetMapping("/Holamundo")
+    public String returnSaludo(){
+        return "Hola Mundo, acceso concendido";
+    }
+
     @GetMapping("/Users")
     public ResponseEntity<List<User>> findAll(){
 
