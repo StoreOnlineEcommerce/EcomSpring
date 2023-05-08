@@ -4,10 +4,12 @@ import com.spring.ecomspring.entities.User;
 import com.spring.ecomspring.repository.UserRepository;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api")
@@ -26,10 +28,22 @@ public class UserController {
         return "Hola Mundo, acceso concendido";
     }
 
-    @GetMapping("/Users")
+    @GetMapping("/users")
     public ResponseEntity<List<User>> findAll(){
 
-        List<User> users = userRepository.findAll();
+        List<User> users = userRepository.findAllWithTipoDocumento();
         return  ResponseEntity.ok(users);
+    }
+
+    @GetMapping("/users/{id}")
+    public ResponseEntity<User> findOneById(@PathVariable Long id){
+
+        Optional<User> UserOpt = userRepository.findById(id);
+
+        if(UserOpt.isPresent())
+            return ResponseEntity.ok(UserOpt.get());
+        else
+            return ResponseEntity.notFound().build();
+
     }
 }
