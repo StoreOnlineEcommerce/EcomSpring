@@ -53,5 +53,13 @@ public class User {
     private DocumentType documentTypes;
 
 
+    @PrePersist
+    public void prePersist(){
+        if(this.name != null) {
+            this.name = "Hola";
+        }
+    }
+
+
 
 }
