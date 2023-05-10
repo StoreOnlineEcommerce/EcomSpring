@@ -2,6 +2,8 @@ package com.spring.ecomspring.controller;
 
 import com.spring.ecomspring.entities.User;
 import com.spring.ecomspring.repository.UserRepository;
+import com.spring.ecomspring.services.UserServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,6 +19,9 @@ public class UserController {
 
     private final UserRepository userRepository;
 
+    @Autowired
+    private UserServiceImpl userServiceimpl;
+
 
     public UserController(UserRepository userRepository) {
         this.userRepository = userRepository;
@@ -31,7 +36,8 @@ public class UserController {
     @GetMapping("/users")
     public ResponseEntity<List<User>> findAll(){
 
-        List<User> users = userRepository.findAllWithTipoDocumento();
+        //List<User> users = userRepository.findAllWithTipoDocumento();
+        List<User> users = userServiceimpl.getUserFindAll();
         return  ResponseEntity.ok(users);
     }
 
