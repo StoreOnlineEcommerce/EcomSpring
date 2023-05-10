@@ -21,7 +21,7 @@ public class UserServiceImpl {
 
         List<User> users = userRepository.findAllWithTipoDocumento();
 
-
+        // Filter data
         for(User user: users){
 
             String name_InSpaces = stringUtil.trim(user.getName());
