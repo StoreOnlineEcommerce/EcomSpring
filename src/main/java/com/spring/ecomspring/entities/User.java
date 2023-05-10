@@ -10,6 +10,7 @@ import java.util.Set;
 
 @Getter
 @Setter
+@NoArgsConstructor // Genera automáticamente un constructor sin argumentos
 @Entity
 @Table( name = "user_system")
 @PrimaryKeyJoinColumn(name = "oid_user_system")
