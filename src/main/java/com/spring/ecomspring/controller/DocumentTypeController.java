@@ -6,11 +6,15 @@ import com.spring.ecomspring.services.DocumentTypeImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
+@RequestMapping("/api/document-type")
 public class DocumentTypeController {
 
     @Autowired
@@ -19,10 +23,22 @@ public class DocumentTypeController {
     @Autowired
     private DocumentTypeImpl documentTypeImpl;
 
-    @GetMapping("/DocumentType")
+    @GetMapping
     public ResponseEntity<List<DocumentType>> findAll(){
 
         List<DocumentType> documentTypes = documentTypeImpl.getfindAll();
         return  ResponseEntity.ok(documentTypes);
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<DocumentType> findById(@PathVariable Long id){
+
+        Optional<DocumentType> documentOpt = documentTypeImpl.getById(id);
+
+        if(documentOpt.isPresent())
+            return ResponseEntity.ok(documentOpt.get());
+
+        return ResponseEntity.notFound().build();
+
     }
 }
