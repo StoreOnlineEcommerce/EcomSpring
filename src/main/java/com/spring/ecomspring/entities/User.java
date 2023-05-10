@@ -10,7 +10,6 @@ import java.util.Set;
 
 @Getter
 @Setter
-@ToString
 @Entity
 @Table( name = "user_system")
 @PrimaryKeyJoinColumn(name = "oid_user_system")
@@ -52,13 +51,6 @@ public class User {
     @JoinColumn( name = "fk_oid_document" )
     private DocumentType documentTypes;
 
-
-    @PrePersist
-    public void prePersist(){
-        if(this.name != null) {
-            this.name = "Hola";
-        }
-    }
 
 
 
