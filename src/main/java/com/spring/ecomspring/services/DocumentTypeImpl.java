@@ -54,6 +54,15 @@ public class DocumentTypeImpl {
         return documentOptional;
     }
 
+    public DocumentType saveId(DocumentType documentType){
+
+        if(documentType.getName()  == null || documentType.getName().isEmpty()){
+            throw new IllegalArgumentException("the name of the document type is requerid");
+        }
+
+        return documentTypeRepository.save(documentType);
+    }
+
 
 
 

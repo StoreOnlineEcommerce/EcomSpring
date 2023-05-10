@@ -4,11 +4,9 @@ import com.spring.ecomspring.entities.DocumentType;
 import com.spring.ecomspring.repository.DocumentTypeRepository;
 import com.spring.ecomspring.services.DocumentTypeImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
@@ -39,6 +37,12 @@ public class DocumentTypeController {
             return ResponseEntity.ok(documentOpt.get());
 
         return ResponseEntity.notFound().build();
+    }
 
+    @PostMapping
+    public ResponseEntity<DocumentType> create(@RequestBody DocumentType documentType){
+
+        DocumentType newDocumentType = documentTypeImpl.saveId(documentType);
+        return ResponseEntity.status(HttpStatus.CREATED).body(newDocumentType);
     }
 }
