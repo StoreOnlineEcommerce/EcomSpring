@@ -109,16 +109,18 @@ CREATE TABLE means_payments(
 
 
 -- check  of the tables
-SELECT * FROM tipo_documento;
-SELECT * FROM usuarios;
+SELECT * FROM document_type;
+SELECT * FROM user_system;
 SELECT * FROM roles; 
-SELECT * FROM usuarios_roles; -- relacionar con roles y usuario
-SELECT * FROM medios_pagos;  -- relacionar con usuario
-SELECT * FROM tipo_vivienda;
-SELECT * FROM departamento;
-SELECT * FROM municipio;
-SELECT * FROM tipocalle;
-SELECT * FROM direccion;
+SELECT * FROM user_roles; -- relacionar con roles y usuario
+SELECT * FROM provider_oauth2;  -- relacionar con usuario
+SELECT * FROM oauth2;
+SELECT * FROM type_housing;
+SELECT * FROM street_type;
+SELECT * FROM departament;
+SELECT * FROM municipality;
+SELECT * FROM address;
+SELECT * FROM means_payments;
 
 
 ------------------------------------------------------------------------------------
@@ -127,19 +129,24 @@ SELECT * FROM direccion;
 
 
 -- Table tipodocumento
-INSERT INTO tipo_documento(nombre_documento) VALUES ('Registro Civil');
-INSERT INTO tipo_documento(nombre_documento) VALUES ('Tarjeta de Identidad');
-INSERT INTO tipo_documento(nombre_documento) VALUES ('Cédula de Ciudadanía');
-INSERT INTO tipo_documento(nombre_documento) VALUES ('Tarjeta de Extranjería');
-INSERT INTO tipo_documento(nombre_documento) VALUES ('Cédula de Extranjería');
-INSERT INTO tipo_documento(nombre_documento) VALUES ('Pasaporte');
-INSERT INTO tipo_documento(nombre_documento) VALUES ('Documento de identificación extranjero');
-INSERT INTO tipo_documento(nombre_documento) VALUES ('NUIP');
+INSERT INTO document_type(document_name) VALUES ('Registro Civil');
+INSERT INTO document_type(document_name) VALUES ('Tarjeta de Identidad');
+INSERT INTO document_type(document_name) VALUES ('Cédula de Ciudadanía');
+INSERT INTO document_type(document_name) VALUES ('Tarjeta de Extranjería');
+INSERT INTO document_type(document_name) VALUES ('Cédula de Extranjería');
+INSERT INTO document_type(document_name) VALUES ('Pasaporte');
+INSERT INTO document_type(document_name) VALUES ('Documento de identificación extranjero');
+INSERT INTO document_type(document_name) VALUES ('NUIP');
 
 
 -- table usuarios
-INSERT INTO usuarios(nombres_usuario,apellidos_usuario,fk_oid_documento,numero_documento,email,contraseña,fecha_creacion,fecha_nacimiento) 
+INSERT INTO user_system(user_name,user_last_name,fk_oid_document,document_number,user_email,user_password,creation_date,birth_date) 
 				   VALUES ('Duvan Dario','Castro Bautista',3,'1098790288','duvancastro1026@gmail.com','admin',DATE '2023-04-27', DATE '1996-10-26');
+INSERT INTO user_system(user_name,user_last_name,fk_oid_document,document_number,user_email,user_password,creation_date,birth_date, cell_phone) 
+				   VALUES ('Duvan','Castro ',3,'1098790288','duvancastro1026@gmail.com','admin',DATE '2023-04-27', DATE '1996-10-26', '3156802266');
+
+
+
 INSERT INTO usuarios(nombres_usuario,apellidos_usuario,fk_oid_documento,numero_documento,email,contraseña,fecha_creacion,fecha_nacimiento) 
 				   VALUES ('Leidy','Reyes',3,'1098903223','leidyreyes03@gmail.com','admin1',DATE '2023-04-27', DATE '1996-12-15');
 INSERT INTO usuarios(nombres_usuario,apellidos_usuario,email,contraseña,fecha_creacion)
