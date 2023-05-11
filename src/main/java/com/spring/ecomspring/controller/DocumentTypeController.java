@@ -57,4 +57,14 @@ public class DocumentTypeController {
         }
         return ResponseEntity.ok(documentTypeImpl.updateId(id,documentType));
     }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteId(@PathVariable Long id){
+
+        if(documentTypeRepository.findById(id).isEmpty()){
+            return ResponseEntity.notFound().build();
+        }
+        documentTypeImpl.deleteId(id);
+        return ResponseEntity.noContent().build();
+    }
 }

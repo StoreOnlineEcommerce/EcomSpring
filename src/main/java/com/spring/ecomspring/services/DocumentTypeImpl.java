@@ -85,6 +85,14 @@ public class DocumentTypeImpl {
         }
     }
 
+    public void deleteId(Long id){
+
+        if(documentTypeRepository.findById(id).isPresent()){
+            documentTypeRepository.deleteById(id);
+        }
+
+    }
+
 
 
 
