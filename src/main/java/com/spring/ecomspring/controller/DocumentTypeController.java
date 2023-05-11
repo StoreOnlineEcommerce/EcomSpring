@@ -46,7 +46,6 @@ public class DocumentTypeController {
         if(documentType.getDocumentId() != null){
             return ResponseEntity.badRequest().build();
         }
-
         return ResponseEntity.ok(documentTypeImpl.saveId(documentType));
     }
 }
