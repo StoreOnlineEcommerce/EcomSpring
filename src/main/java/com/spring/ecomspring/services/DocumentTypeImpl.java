@@ -4,6 +4,7 @@ import com.spring.ecomspring.entities.DocumentType;
 import com.spring.ecomspring.repository.DocumentTypeRepository;
 import com.spring.ecomspring.util.StringUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -25,7 +26,9 @@ public class DocumentTypeImpl {
      */
     public List<DocumentType> getfindAll(){
 
-        List<DocumentType> documentTypes = documentTypeRepository.findAll();
+        // Variable encargada de ordenar los datos por su ID de manera ascendente
+        Sort sortDocumentType = Sort.by(Sort.Direction.ASC, "documentId");
+        List<DocumentType> documentTypes = documentTypeRepository.findAll(sortDocumentType);
 
         for(DocumentType document : documentTypes){
 
@@ -60,6 +63,26 @@ public class DocumentTypeImpl {
             throw new IllegalArgumentException("the name of the document type is requerid");
         }
         return documentTypeRepository.save(documentType);
+    }
+
+    public DocumentType updateId(Long id, DocumentType documentType){
+
+        Optional<DocumentType> documentTypeOptional = documentTypeRepository.findById(id);
+
+        if(documentTypeOptional.isPresent()){
+
+            if(documentType.getName()  == null || documentType.getName().trim().isEmpty()){
+                throw new IllegalArgumentException("the name of the document type is requerid");
+            }
+
+            DocumentType documentType1 = documentTypeOptional.get();
+            documentType1.setName(documentType.getName());
+
+            return documentTypeRepository.save(documentType1);
+
+        }else{
+            throw new IllegalArgumentException("Id not existing, please check the id");
+        }
     }
 
 

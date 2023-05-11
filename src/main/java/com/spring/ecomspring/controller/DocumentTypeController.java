@@ -48,4 +48,13 @@ public class DocumentTypeController {
         }
         return ResponseEntity.ok(documentTypeImpl.saveId(documentType));
     }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<DocumentType> updateById(@PathVariable Long id, @RequestBody DocumentType documentType){
+
+        if(documentTypeRepository.findById(id).isEmpty()){
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(documentTypeImpl.updateId(id,documentType));
+    }
 }
