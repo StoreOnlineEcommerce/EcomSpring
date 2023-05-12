@@ -30,6 +30,8 @@ public class UserServiceImpl implements IUserService{
             String documentNumber_InSpaces = stringUtil.trim(user.getDocumentNumber());
             String numberPhone_InSpaces = stringUtil.trim(user.getNumberPhobe());
             String email_InSpaces = stringUtil.trim(user.getEmail());
+            String documentType_Inspaces = stringUtil.trim(user.getDocumentTypes().getName());
+
 
             user.setName(name_InSpaces);
             user.setLastName(lastName_InSpaces);
