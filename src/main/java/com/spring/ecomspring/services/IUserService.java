@@ -12,7 +12,7 @@ public interface IUserService {
 
     List<User> findAll();
 
-    Optional<User> finById();
+    Optional<User> findById(Long id);
 
     User save(User user);
 

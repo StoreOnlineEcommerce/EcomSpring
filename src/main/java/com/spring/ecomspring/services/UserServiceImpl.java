@@ -44,7 +44,7 @@ public class UserServiceImpl implements IUserService{
 
     public List<User> findAll(){
 
-        List<User> users = userRepository.findAllWithTipoDocumento();
+        List<User> users = userRepository.findAllWithDocumentType();
 
         // Filter data
         for(User user: users){
@@ -56,9 +56,19 @@ public class UserServiceImpl implements IUserService{
     }
 
     @Override
-    public Optional<User> finById() {
-        return Optional.empty();
+    public Optional<User> findById(Long id) {
+
+        Optional<User> userOptional = userRepository.findByIdWithTipoDocumento(id);
+
+        if(userOptional.isPresent()){
+            User user = userOptional.get();
+            user = filterEmpytySpaces(user);
+            //userOptional = Optional.of(user);
+        }
+
+        return userOptional;
     }
+
 
     @Override
     public User save(User user) {

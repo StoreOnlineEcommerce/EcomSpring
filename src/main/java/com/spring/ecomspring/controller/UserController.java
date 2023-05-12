@@ -40,13 +40,13 @@ public class UserController {
         return  ResponseEntity.ok(users);
     }
 
-    @GetMapping("/users/{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<User> findOneById(@PathVariable Long id){
 
-        Optional<User> UserOpt = userRepository.findById(id);
+        Optional<User> userOpt= userServiceimpl.findById(id);
 
-        if(UserOpt.isPresent())
-            return ResponseEntity.ok(UserOpt.get());
+        if(userOpt.isPresent())
+            return ResponseEntity.ok(userOpt.get());
         else
             return ResponseEntity.notFound().build();
 
