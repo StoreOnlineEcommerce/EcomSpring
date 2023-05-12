@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/user")
 public class UserController {
 
     private final UserRepository userRepository;
@@ -28,15 +28,14 @@ public class UserController {
     }
 
 
-    @GetMapping("/Holamundo")
+    @GetMapping("/holamundo")
     public String returnSaludo(){
         return "Hola Mundo, acceso concendido";
     }
 
-    @GetMapping("/users")
+    @GetMapping
     public ResponseEntity<List<User>> findAll(){
 
-        //List<User> users = userRepository.findAllWithTipoDocumento();
         List<User> users = userServiceimpl.findAll();
         return  ResponseEntity.ok(users);
     }
