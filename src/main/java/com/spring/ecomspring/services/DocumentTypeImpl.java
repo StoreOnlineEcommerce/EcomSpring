@@ -19,6 +19,11 @@ public class DocumentTypeImpl {
     @Autowired
     private StringUtil stringUtil;
 
+    /**
+     * Filter name documetType
+     * @param documentType type of document to filter
+     * @return DocumentType filter
+     */
     public DocumentType filterEmptySpaces(DocumentType documentType){
 
         String name_InSpaces = stringUtil.trim(documentType.getName());
@@ -55,10 +60,8 @@ public class DocumentTypeImpl {
 
         if(documentOptional.isPresent()){
             DocumentType document = documentOptional.get();
-            String document_InSpaces = stringUtil.trim(document.getName());
-            document.setName(document_InSpaces);
+            document = filterEmptySpaces(document);
         }
-
         return documentOptional;
     }
 

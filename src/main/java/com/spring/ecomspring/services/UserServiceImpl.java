@@ -22,6 +22,26 @@ public class UserServiceImpl implements IUserService{
     @Autowired
     private StringUtil stringUtil;
 
+    public User filterEmpytySpaces(User user){
+
+        String name_InSpaces = stringUtil.trim(user.getName());
+        String lastName_InSpaces = stringUtil.trim(user.getLastName());
+        String documentNumber_InSpaces = stringUtil.trim(user.getDocumentNumber());
+        String numberPhone_InSpaces = stringUtil.trim(user.getNumberPhobe());
+        String email_InSpaces = stringUtil.trim(user.getEmail());
+        DocumentType documentType = user.getDocumentTypes();
+
+        user.setName(name_InSpaces);
+        user.setLastName(lastName_InSpaces);
+        user.setDocumentNumber(documentNumber_InSpaces);
+        user.setNumberPhobe(numberPhone_InSpaces);
+        user.setEmail(email_InSpaces);
+        user.setDocumentTypes(documentTypeImpl.filterEmptySpaces(documentType));
+
+        return user;
+    }
+
+
     public List<User> findAll(){
 
         List<User> users = userRepository.findAllWithTipoDocumento();
@@ -29,19 +49,7 @@ public class UserServiceImpl implements IUserService{
         // Filter data
         for(User user: users){
 
-            String name_InSpaces = stringUtil.trim(user.getName());
-            String lastName_InSpaces = stringUtil.trim(user.getLastName());
-            String documentNumber_InSpaces = stringUtil.trim(user.getDocumentNumber());
-            String numberPhone_InSpaces = stringUtil.trim(user.getNumberPhobe());
-            String email_InSpaces = stringUtil.trim(user.getEmail());
-            DocumentType documentType = user.getDocumentTypes();
-
-            user.setName(name_InSpaces);
-            user.setLastName(lastName_InSpaces);
-            user.setDocumentNumber(documentNumber_InSpaces);
-            user.setNumberPhobe(numberPhone_InSpaces);
-            user.setEmail(email_InSpaces);
-            user.setDocumentTypes(documentTypeImpl.filterEmptySpaces(documentType));
+            user = filterEmpytySpaces(user);
         }
 
         return users;
