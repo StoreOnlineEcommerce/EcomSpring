@@ -37,7 +37,7 @@ public class UserController {
     public ResponseEntity<List<User>> findAll(){
 
         //List<User> users = userRepository.findAllWithTipoDocumento();
-        List<User> users = userServiceimpl.getUserFindAll();
+        List<User> users = userServiceimpl.findAll();
         return  ResponseEntity.ok(users);
     }
 

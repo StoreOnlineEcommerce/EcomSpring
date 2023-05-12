@@ -7,9 +7,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
-public class UserServiceImpl {
+public class UserServiceImpl implements IUserService{
 
     @Autowired
     private UserRepository userRepository;
@@ -17,7 +18,7 @@ public class UserServiceImpl {
     @Autowired
     private StringUtil stringUtil;
 
-    public List<User> getUserFindAll(){
+    public List<User> findAll(){
 
         List<User> users = userRepository.findAllWithTipoDocumento();
 
@@ -38,6 +39,41 @@ public class UserServiceImpl {
         }
 
         return users;
+    }
+
+    @Override
+    public Optional<User> finById() {
+        return Optional.empty();
+    }
+
+    @Override
+    public User save(User user) {
+        return null;
+    }
+
+    @Override
+    public User update(User user) {
+        return null;
+    }
+
+    @Override
+    public void deleteById(Long id) {
+
+    }
+
+    @Override
+    public void deleteById(List<Long> ids) {
+
+    }
+
+    @Override
+    public void deleteAll() {
+
+    }
+
+    @Override
+    public void deleteAll(List<User> users) {
+
     }
 
 }
