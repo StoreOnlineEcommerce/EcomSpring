@@ -19,6 +19,15 @@ public class DocumentTypeImpl {
     @Autowired
     private StringUtil stringUtil;
 
+    public DocumentType filterEmptySpaces(DocumentType documentType){
+
+        String name_InSpaces = stringUtil.trim(documentType.getName());
+        documentType.setName(name_InSpaces);
+
+        return documentType;
+    }
+
+
     /**
      * Obtiene la lista de los tipos de documentos
      * @return List<DocumentType> lista de documentos sin espacios vacios al inicio y final
@@ -29,8 +38,7 @@ public class DocumentTypeImpl {
 
         for(DocumentType document : documentTypes){
 
-            String name_InSpaces = stringUtil.trim(document.getName());
-            document.setName(name_InSpaces);
+              document = filterEmptySpaces(document);
         }
 
         return documentTypes;
