@@ -1,5 +1,6 @@
 package com.spring.ecomspring.services;
 
+import com.spring.ecomspring.entities.DocumentType;
 import com.spring.ecomspring.entities.User;
 import com.spring.ecomspring.repository.UserRepository;
 import com.spring.ecomspring.util.StringUtil;
@@ -16,6 +17,9 @@ public class UserServiceImpl implements IUserService{
     private UserRepository userRepository;
 
     @Autowired
+    private DocumentTypeImpl documentTypeImpl;
+
+    @Autowired
     private StringUtil stringUtil;
 
     public List<User> findAll(){
@@ -30,14 +34,14 @@ public class UserServiceImpl implements IUserService{
             String documentNumber_InSpaces = stringUtil.trim(user.getDocumentNumber());
             String numberPhone_InSpaces = stringUtil.trim(user.getNumberPhobe());
             String email_InSpaces = stringUtil.trim(user.getEmail());
-            String documentType_Inspaces = stringUtil.trim(user.getDocumentTypes().getName());
-
+            DocumentType documentType = user.getDocumentTypes();
 
             user.setName(name_InSpaces);
             user.setLastName(lastName_InSpaces);
             user.setDocumentNumber(documentNumber_InSpaces);
             user.setNumberPhobe(numberPhone_InSpaces);
             user.setEmail(email_InSpaces);
+            user.setDocumentTypes(documentTypeImpl.filterEmptySpaces(documentType));
         }
 
         return users;
