@@ -5,10 +5,7 @@ import com.spring.ecomspring.repository.UserRepository;
 import com.spring.ecomspring.services.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
@@ -51,4 +48,16 @@ public class UserController {
             return ResponseEntity.notFound().build();
 
     }
+
+    @PostMapping
+    public ResponseEntity<User> saveId(User user){
+
+        if(user.getUserId() != null){
+            return ResponseEntity.badRequest().build();
+        }
+
+        return ResponseEntity.ok(userServiceimpl.save(user));
+
+    }
+
 }

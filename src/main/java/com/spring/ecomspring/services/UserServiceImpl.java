@@ -72,7 +72,21 @@ public class UserServiceImpl implements IUserService{
 
     @Override
     public User save(User user) {
-        return null;
+
+        user = filterEmpytySpaces(user);
+
+        if(user.getEmail() == null || user.getEmail().isEmpty()){
+            throw new IllegalArgumentException("The email of the User is requeried");
+        }
+        if(user.getPassword() == null || user.getPassword().isEmpty()){
+            throw new IllegalArgumentException("The password of the User is requeried");
+        }
+        if(user.getCreationDate() == null){
+            throw new IllegalArgumentException(("The creation date of the user is requeried"));
+        }
+
+
+        return user;
     }
 
     @Override
