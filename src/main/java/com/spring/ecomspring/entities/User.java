@@ -45,7 +45,8 @@ public class User {
     @Column(name="birth_date")
     private LocalDate birthDate;
 
-    @ManyToOne(optional = true)
+    @ManyToOne(
+            optional = true)
     @JoinColumn( name = "fk_oid_document" )
     private DocumentType documentTypes;
 
