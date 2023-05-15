@@ -1,6 +1,7 @@
 package com.spring.ecomspring.entities;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
@@ -10,6 +11,7 @@ import java.util.Set;
 
 @Getter
 @Setter
+@NoArgsConstructor // Genera automáticamente un constructor sin argumentos
 @ToString
 @Entity
 @Table(name="document_type")
