@@ -1,6 +1,8 @@
 package com.spring.ecomspring.controller;
 
+import com.spring.ecomspring.entities.DocumentType;
 import com.spring.ecomspring.entities.User;
+import com.spring.ecomspring.repository.DocumentTypeRepository;
 import com.spring.ecomspring.repository.UserRepository;
 import com.spring.ecomspring.services.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +20,9 @@ public class UserController {
 
     @Autowired
     private UserServiceImpl userServiceimpl;
+
+    @Autowired
+    private DocumentTypeRepository documentTypeRepository;
 
 
     public UserController(UserRepository userRepository) {
@@ -49,14 +54,39 @@ public class UserController {
 
     }
 
-    @PostMapping
-    public ResponseEntity<User> saveId(User user){
+//    @PostMapping
+//    public ResponseEntity<User> saveId(@RequestBody User user, @RequestParam(required = false) Long documentTypeId){
+//
+//        if(user.getUserId() != null){
+//            return ResponseEntity.badRequest().build();
+//        }
+//
+//        if(documentTypeId != null){
+//            DocumentType documentType = documentTypeRepository.findById(documentTypeId).orElse(null);
+//            if (documentType == null) {
+//                return ResponseEntity.badRequest().build();
+//            }
+//            user.setDocumentTypes(documentType);
+//        }
+//
+//        return ResponseEntity.ok(userServiceimpl.save(user));
+//
+//    }
 
-        if(user.getUserId() != null){
-            return ResponseEntity.badRequest().build();
+    @PostMapping
+    public ResponseEntity<User> saveId(@RequestBody User user){
+
+//        if(user.getUserId() != null){
+//            return ResponseEntity.badRequest().build();
+//        }
+
+        if(user.getDocumentTypes() == null){
+            user.setDocumentTypes(null);
         }
 
-        return ResponseEntity.ok(userServiceimpl.save(user));
+        user = userServiceimpl.save(user);
+
+        return ResponseEntity.ok(userRepository.save(user));
 
     }
 

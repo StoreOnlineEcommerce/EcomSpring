@@ -46,13 +46,9 @@ public class User {
     private LocalDate birthDate;
 
     @ManyToOne(
-            fetch = FetchType.LAZY,
-            optional = false
-    )
+            optional = true)
     @JoinColumn( name = "fk_oid_document" )
     private DocumentType documentTypes;
-
-
 
 
 }
