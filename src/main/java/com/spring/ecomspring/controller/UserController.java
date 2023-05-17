@@ -84,8 +84,8 @@ public class UserController {
 //            DocumentType documentType1 = documentTypeRepository.findById(1L).orElse(null);
 //            user.setDocumentTypes(documentType1);
 //        }
-
-        user = userServiceimpl.save(user);
+//
+//        user = userServiceimpl.save(user);
 
         return ResponseEntity.ok(userRepository.save(user));
 
