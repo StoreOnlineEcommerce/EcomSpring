@@ -66,7 +66,7 @@ public class UserServiceImpl implements IUserService{
     @Override
     public Optional<User> findById(Long id) {
 
-        Optional<User> userOptional = userRepository.findByIdWithTipoDocumento(id);
+        Optional<User> userOptional = userRepository.findByIdWithDocumentType(id);
 
         if(userOptional.isPresent()){
             User user = userOptional.get();
