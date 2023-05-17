@@ -22,6 +22,11 @@ public class UserServiceImpl implements IUserService{
     @Autowired
     private StringUtil stringUtil;
 
+    /**
+     * Filter parameters of the table User
+     * @param user Object User
+     * @return user filters
+     */
     public User filterEmpytySpaces(User user){
 
         String name_InSpaces = stringUtil.trim(user.getName());
@@ -36,7 +41,10 @@ public class UserServiceImpl implements IUserService{
         user.setDocumentNumber(documentNumber_InSpaces);
         user.setNumberPhobe(numberPhone_InSpaces);
         user.setEmail(email_InSpaces);
-        user.setDocumentTypes(documentTypeImpl.filterEmptySpaces(documentType));
+
+        if(documentType != null){
+            user.setDocumentTypes(documentTypeImpl.filterEmptySpaces(documentType));
+        }
 
         return user;
     }
@@ -58,7 +66,7 @@ public class UserServiceImpl implements IUserService{
     @Override
     public Optional<User> findById(Long id) {
 
-        Optional<User> userOptional = userRepository.findByIdWithTipoDocumento(id);
+        Optional<User> userOptional = userRepository.findByIdWithDocumentType(id);
 
         if(userOptional.isPresent()){
             User user = userOptional.get();
