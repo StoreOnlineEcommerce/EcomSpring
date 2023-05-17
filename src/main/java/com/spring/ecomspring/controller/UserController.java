@@ -54,25 +54,6 @@ public class UserController {
 
     }
 
-//    @PostMapping
-//    public ResponseEntity<User> saveId(@RequestBody User user, @RequestParam(required = false) Long documentTypeId){
-//
-//        if(user.getUserId() != null){
-//            return ResponseEntity.badRequest().build();
-//        }
-//
-//        if(documentTypeId != null){
-//            DocumentType documentType = documentTypeRepository.findById(documentTypeId).orElse(null);
-//            if (documentType == null) {
-//                return ResponseEntity.badRequest().build();
-//            }
-//            user.setDocumentTypes(documentType);
-//        }
-//
-//        return ResponseEntity.ok(userServiceimpl.save(user));
-//
-//    }
-
     @PostMapping
     public ResponseEntity<User> saveId(@RequestBody User user){
 
