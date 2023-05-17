@@ -76,16 +76,11 @@ public class UserController {
     @PostMapping
     public ResponseEntity<User> saveId(@RequestBody User user){
 
-//        if(user.getUserId() != null){
-//            return ResponseEntity.badRequest().build();
-//        }
+        if(user.getUserId() != null){
+            return ResponseEntity.badRequest().build();
+        }
 
-//        if(user.getDocumentTypes() == null){
-//            DocumentType documentType1 = documentTypeRepository.findById(1L).orElse(null);
-//            user.setDocumentTypes(documentType1);
-//        }
-//
-//        user = userServiceimpl.save(user);
+        user = userServiceimpl.save(user);
 
         return ResponseEntity.ok(userRepository.save(user));
 
