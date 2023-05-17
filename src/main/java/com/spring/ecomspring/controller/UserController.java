@@ -80,9 +80,10 @@ public class UserController {
 //            return ResponseEntity.badRequest().build();
 //        }
 
-        if(user.getDocumentTypes() == null){
-            user.setDocumentTypes(null);
-        }
+//        if(user.getDocumentTypes() == null){
+//            DocumentType documentType1 = documentTypeRepository.findById(1L).orElse(null);
+//            user.setDocumentTypes(documentType1);
+//        }
 
         user = userServiceimpl.save(user);
 

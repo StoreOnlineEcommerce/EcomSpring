@@ -49,6 +49,4 @@ public class User {
             optional = true)
     @JoinColumn( name = "fk_oid_document" )
     private DocumentType documentTypes;
-
-
 }

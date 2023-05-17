@@ -25,7 +25,4 @@ public class DocumentType {
     @Column(name="document_name")
     private String name;
 
-    @OneToMany
-    private Set<User> users = new HashSet<>();
-
 }
