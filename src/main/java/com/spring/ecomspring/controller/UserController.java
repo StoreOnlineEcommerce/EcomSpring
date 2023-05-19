@@ -67,4 +67,19 @@ public class UserController {
 
     }
 
+
+
+    @PutMapping
+    public ResponseEntity<User> update(@RequestBody User user){
+
+        if(user.getUserId() == null){// verifica si contienen ID
+            return ResponseEntity.badRequest().build();
+        }
+
+        if(!userRepository.existsById(user.getUserId())){ // verifica si la ID existe
+            return ResponseEntity.notFound().build();
+        }
+
+        return ResponseEntity.ok(userServiceimpl.update(user));
+    }
 }
