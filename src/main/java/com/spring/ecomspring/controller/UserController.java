@@ -95,6 +95,16 @@ public class UserController {
     }
 
 
+    @DeleteMapping("/deleteMany/{ids}")
+    public ResponseEntity<String> deleteMany(@PathVariable List<Long> ids){
+
+        this.userServiceimpl.deleteAllById(ids);
+
+        return ResponseEntity.ok("User deleted successfully");
+
+    }
+
+
 
 
 }

@@ -5,7 +5,9 @@ import com.spring.ecomspring.entities.User;
 import com.spring.ecomspring.repository.UserRepository;
 import com.spring.ecomspring.util.StringUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.util.CollectionUtils;
 
 import java.util.List;
 import java.util.Optional;
@@ -122,8 +124,19 @@ public class UserServiceImpl implements IUserService{
     }
 
     @Override
-    public void deleteById(List<Long> ids) {
+    public void deleteAllById(List<Long> ids) {
 
+        if(CollectionUtils.isEmpty(ids)){
+            throw  new IllegalArgumentException("Trying to delete an empty or null ids list");
+        }
+
+        for(Long id: ids){
+            if(!this.userRepository.existsById(id)){
+                throw new IllegalArgumentException("id notfound : " + id);
+            }
+        }
+
+        this.userRepository.deleteAllById(ids);
     }
 
     @Override
