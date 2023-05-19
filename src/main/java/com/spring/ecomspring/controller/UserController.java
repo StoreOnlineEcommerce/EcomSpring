@@ -61,9 +61,7 @@ public class UserController {
             return ResponseEntity.badRequest().build();
         }
 
-        user = userServiceimpl.save(user);
-
-        return ResponseEntity.ok(userRepository.save(user));
+        return ResponseEntity.ok(userServiceimpl.save(user));
 
     }
 
@@ -82,4 +80,6 @@ public class UserController {
 
         return ResponseEntity.ok(userServiceimpl.update(user));
     }
+
+
 }

@@ -93,8 +93,7 @@ public class UserServiceImpl implements IUserService{
             throw new IllegalArgumentException(("The creation date of the user is requeried"));
         }
 
-
-        return user;
+        return userRepository.save(user);
     }
 
     @Override
