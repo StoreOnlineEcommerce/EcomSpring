@@ -36,9 +36,23 @@ public class UserController {
     }
 
     @GetMapping
-    public ResponseEntity<List<User>> findAll(){
+    public ResponseEntity<List<User>> findAll(@RequestParam(required = false) String sortBy){
 
-        List<User> users = userServiceimpl.findAll();
+        List<User> users;
+
+        if(sortBy == null){
+            users = userServiceimpl.findAll();
+        }else{
+            switch (sortBy) {
+                case "id":
+                    users = userServiceimpl.findAllSortedById();
+                    break;
+                default:
+                    users = userServiceimpl.findAll();
+                    break;
+            }
+        }
+
         return  ResponseEntity.ok(users);
     }
 

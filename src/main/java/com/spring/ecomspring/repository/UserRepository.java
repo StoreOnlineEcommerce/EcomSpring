@@ -13,14 +13,8 @@ import java.util.Optional;
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
 
-//    @Query("SELECT u FROM User u JOIN FETCH u.documentTypes")
-//    List<User> findAllWithDocumentType();
-
     @Query("SELECT u FROM User u LEFT JOIN u.documentTypes")
     List<User> findAllWithDocumentType();
-
-//    @Query("SELECT u FROM User u JOIN FETCH u.documentTypes WHERE u.userId = :userId")
-//    Optional<User> findByIdWithDocumentType(@Param("userId") Long userId);
 
     @Query("SELECT u FROM User u LEFT JOIN u.documentTypes WHERE u.userId = :userId")
     Optional<User> findByIdWithDocumentType(@Param("userId") Long userId);

@@ -5,13 +5,13 @@ import com.spring.ecomspring.entities.User;
 import com.spring.ecomspring.repository.UserRepository;
 import com.spring.ecomspring.util.StringUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
+import java.util.stream.Collectors;
 
 @Service
 public class UserServiceImpl implements IUserService{
@@ -78,11 +78,16 @@ public class UserServiceImpl implements IUserService{
 
     @Override
     public List<User> findAllSortedById() {
-        return null;
-    }
+
+        List<User> users = findAll();
+        // Ordena la lista de usuarios por el campo "userId"
+        users.sort(Comparator.comparingLong(User::getUserId));
+        return users;
+ }
 
     @Override
     public List<User> findALlSortedByName() {
+
         return null;
     }
 
