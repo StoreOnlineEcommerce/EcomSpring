@@ -12,6 +12,16 @@ public interface IUserService {
 
     List<User> findAll();
 
+    List<User> findAllSortedById();
+    List<User> findALlSortedByName();
+    List<User> findAllSortedByLastName();
+    List<User> findAllSortedByDocumentNumber();
+    List<User> findAllSortedByNumberPhone();
+    List<User> findAllSortedByEmail();
+    List<User> findAllSortedByCreationDate();
+    List<User> findAllSortedByBirthDate();
+    List<User> findAllSortedByDocumentType();
+
     Optional<User> findById(Long id);
 
     User save(User user);
