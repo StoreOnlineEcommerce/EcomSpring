@@ -47,6 +47,9 @@ public class UserController {
                 case "id":
                     users = userServiceimpl.findAllSortedById();
                     break;
+                case "name":
+                    users = userServiceimpl.findALlSortedByName();
+                    break;
                 default:
                     users = userServiceimpl.findAll();
                     break;
