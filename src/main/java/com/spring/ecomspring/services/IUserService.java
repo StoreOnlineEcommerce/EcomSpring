@@ -20,7 +20,7 @@ public interface IUserService {
 
     void deleteById(Long id);
 
-    void deleteById(List<Long> ids);
+    void deleteAllById(List<Long> ids);
 
     void deleteAll();
 

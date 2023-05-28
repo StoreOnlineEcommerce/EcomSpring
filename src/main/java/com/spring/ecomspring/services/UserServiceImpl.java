@@ -5,7 +5,9 @@ import com.spring.ecomspring.entities.User;
 import com.spring.ecomspring.repository.UserRepository;
 import com.spring.ecomspring.util.StringUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.util.CollectionUtils;
 
 import java.util.List;
 import java.util.Optional;
@@ -93,23 +95,48 @@ public class UserServiceImpl implements IUserService{
             throw new IllegalArgumentException(("The creation date of the user is requeried"));
         }
 
-
-        return user;
+        return userRepository.save(user);
     }
 
     @Override
     public User update(User user) {
-        return null;
+
+        user = filterEmpytySpaces(user);
+
+        if(user.getEmail() == null || user.getEmail().isEmpty()){
+            throw new IllegalArgumentException("The email of the User is requeried");
+        }
+        if(user.getPassword() == null || user.getPassword().isEmpty()){
+            throw new IllegalArgumentException("The password of the User is requeried");
+        }
+        if(user.getCreationDate() == null){
+            throw new IllegalArgumentException(("The creation date of the user is requeried"));
+        }
+
+        return userRepository.save(user);
     }
 
     @Override
     public void deleteById(Long id) {
 
+        userRepository.deleteById(id);
+
     }
 
     @Override
-    public void deleteById(List<Long> ids) {
+    public void deleteAllById(List<Long> ids) {
 
+        if(CollectionUtils.isEmpty(ids)){
+            throw  new IllegalArgumentException("Trying to delete an empty or null ids list");
+        }
+
+        for(Long id: ids){
+            if(!this.userRepository.existsById(id)){
+                throw new IllegalArgumentException("id notfound : " + id);
+            }
+        }
+
+        this.userRepository.deleteAllById(ids);
     }
 
     @Override

@@ -61,10 +61,50 @@ public class UserController {
             return ResponseEntity.badRequest().build();
         }
 
-        user = userServiceimpl.save(user);
-
-        return ResponseEntity.ok(userRepository.save(user));
+        return ResponseEntity.ok(userServiceimpl.save(user));
 
     }
+
+
+
+    @PutMapping
+    public ResponseEntity<User> update(@RequestBody User user){
+
+        if(user.getUserId() == null){// verifica si contienen ID
+            return ResponseEntity.badRequest().build();
+        }
+
+        if(!userRepository.existsById(user.getUserId())){ // verifica si la ID existe
+            return ResponseEntity.notFound().build();
+        }
+
+        return ResponseEntity.ok(userServiceimpl.update(user));
+    }
+
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteId(@PathVariable Long id){
+
+        if(!userRepository.existsById(id)){
+            return ResponseEntity.notFound().build();
+        }
+
+        this.userRepository.deleteById(id);
+
+        return ResponseEntity.noContent().build();
+    }
+
+
+    @DeleteMapping("/deleteMany/{ids}")
+    public ResponseEntity<String> deleteMany(@PathVariable List<Long> ids){
+
+        this.userServiceimpl.deleteAllById(ids);
+
+        return ResponseEntity.ok("User deleted successfully");
+
+    }
+
+
+
 
 }
