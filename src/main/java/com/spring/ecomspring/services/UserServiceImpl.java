@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -29,7 +30,7 @@ public class UserServiceImpl implements IUserService{
      * @param user Object User
      * @return user filters
      */
-    public User filterEmpytySpaces(User user){
+    public User filterEmptySpaces(User user){
 
         String name_InSpaces = stringUtil.trim(user.getName());
         String lastName_InSpaces = stringUtil.trim(user.getLastName());
@@ -51,18 +52,73 @@ public class UserServiceImpl implements IUserService{
         return user;
     }
 
+    /**
+     * Filter List of the parameters in User
+     * @param users list of users to filter
+     * @return List of the User
+     */
+    public List<User> listFilterEmptySpaces(List<User> users){
+
+        List<User> userList = new ArrayList<>();
+
+        for(User user : users){
+            userList.add(filterEmptySpaces(user));
+        }
+
+        return userList;
+    }
+
 
     public List<User> findAll(){
 
         List<User> users = userRepository.findAllWithDocumentType();
 
-        // Filter data
-        for(User user: users){
+        return listFilterEmptySpaces(users);
+    }
 
-            user = filterEmpytySpaces(user);
-        }
+    @Override
+    public List<User> findAllSortedById() {
+        return null;
+    }
 
-        return users;
+    @Override
+    public List<User> findALlSortedByName() {
+        return null;
+    }
+
+    @Override
+    public List<User> findAllSortedByLastName() {
+        return null;
+    }
+
+    @Override
+    public List<User> findAllSortedByDocumentNumber() {
+        return null;
+    }
+
+    @Override
+    public List<User> findAllSortedByNumberPhone() {
+        return null;
+    }
+
+    @Override
+    public List<User> findAllSortedByEmail() {
+        return null;
+    }
+
+    @Override
+    public List<User> findAllSortedByCreationDate() {
+        return null;
+    }
+
+    @Override
+    public List<User> findAllSortedByBirthDate() {
+        return null;
+    }
+
+    @Override
+    public List<User> findAllSortedByDocumentType() {
+        return null;
     }
 
     @Override
@@ -72,7 +128,7 @@ public class UserServiceImpl implements IUserService{
 
         if(userOptional.isPresent()){
             User user = userOptional.get();
-            user = filterEmpytySpaces(user);
+            user = filterEmptySpaces(user);
             //userOptional = Optional.of(user);
         }
 
@@ -83,7 +139,7 @@ public class UserServiceImpl implements IUserService{
     @Override
     public User save(User user) {
 
-        user = filterEmpytySpaces(user);
+        user = filterEmptySpaces(user);
 
         if(user.getEmail() == null || user.getEmail().isEmpty()){
             throw new IllegalArgumentException("The email of the User is requeried");
@@ -101,7 +157,7 @@ public class UserServiceImpl implements IUserService{
     @Override
     public User update(User user) {
 
-        user = filterEmpytySpaces(user);
+        user = filterEmptySpaces(user);
 
         if(user.getEmail() == null || user.getEmail().isEmpty()){
             throw new IllegalArgumentException("The email of the User is requeried");
