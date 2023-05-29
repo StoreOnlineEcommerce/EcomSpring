@@ -53,6 +53,9 @@ public class UserController {
                 case "lastname":
                     users = userServiceimpl.findAllSortedByLastName();
                     break;
+                case "documentnumber":
+                    users = userServiceimpl.findAllSortedByDocumentNumber();
+                    break;
                 default:
                     users = userServiceimpl.findAll();
                     break;
