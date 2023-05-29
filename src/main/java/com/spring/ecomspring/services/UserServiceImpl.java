@@ -69,6 +69,27 @@ public class UserServiceImpl implements IUserService{
         return userList;
     }
 
+    /**
+     * process data of the date
+     * @param date to process
+     * @return String[] process date
+     */
+    public String[] processDataDate(String date){
+
+        String[] processDate = new String[3];
+
+        if(!Objects.isNull(date)){
+
+            String[] partsDate = date.split("-");
+
+            processDate[0] = partsDate[2]; // Día
+            processDate[1] = partsDate[1]; // Mes
+            processDate[2] = partsDate[0]; // Año
+        }
+
+        return processDate;
+    }
+
 
     public List<User> findAll(){
 
@@ -131,6 +152,7 @@ public class UserServiceImpl implements IUserService{
 
     @Override
     public List<User> findAllSortedByCreationDate() {
+
         return null;
     }
 
