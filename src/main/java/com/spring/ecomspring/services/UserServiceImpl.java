@@ -123,7 +123,10 @@ public class UserServiceImpl implements IUserService{
 
     @Override
     public List<User> findAllSortedByEmail() {
-        return null;
+        List<User> users = findAll();
+
+        users.sort(Comparator.comparing(User::getEmail, Comparator.nullsLast(String::compareTo)));
+        return users;
     }
 
     @Override
