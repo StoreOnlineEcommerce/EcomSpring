@@ -96,7 +96,12 @@ public class UserServiceImpl implements IUserService{
 
     @Override
     public List<User> findAllSortedByLastName() {
-        return null;
+
+        List<User> users = findAll();
+        // Ordenar la lista de usuarios por el campo "lastName" y tratar los valores nulos como mayores que cualquier otro valor
+        users.sort(Comparator.comparing(User::getLastName, Comparator.nullsLast(String::compareTo)));
+
+        return users;
     }
 
     @Override
