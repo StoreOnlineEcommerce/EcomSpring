@@ -56,6 +56,9 @@ public class UserController {
                 case "documentnumber":
                     users = userServiceimpl.findAllSortedByDocumentNumber();
                     break;
+                case "numberphone":
+                    users = userServiceimpl.findAllSortedByNumberPhone();
+                    break;
                 default:
                     users = userServiceimpl.findAll();
                     break;
