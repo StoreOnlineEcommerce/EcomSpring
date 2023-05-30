@@ -5,12 +5,14 @@ import com.spring.ecomspring.entities.User;
 import com.spring.ecomspring.repository.UserRepository;
 import com.spring.ecomspring.util.StringUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
-import java.util.List;
-import java.util.Optional;
+import javax.swing.plaf.basic.ComboPopup;
+import java.util.*;
+import java.util.stream.Collectors;
 
 @Service
 public class UserServiceImpl implements IUserService{
@@ -29,7 +31,7 @@ public class UserServiceImpl implements IUserService{
      * @param user Object User
      * @return user filters
      */
-    public User filterEmpytySpaces(User user){
+    public User filterEmptySpaces(User user){
 
         String name_InSpaces = stringUtil.trim(user.getName());
         String lastName_InSpaces = stringUtil.trim(user.getLastName());
@@ -51,18 +53,117 @@ public class UserServiceImpl implements IUserService{
         return user;
     }
 
+    /**
+     * Filter List of the parameters in User
+     * @param users list of users to filter
+     * @return List of the User
+     */
+    public List<User> listFilterEmptySpaces(List<User> users){
+
+        List<User> userList = new ArrayList<>();
+
+        for(User user : users){
+            userList.add(filterEmptySpaces(user));
+        }
+
+        return userList;
+    }
+
+    /**
+     * process data of the date
+     * @param date to process
+     * @return String[] process date
+     */
+    public String[] processDataDate(String date){
+
+        String[] processDate = new String[3];
+
+        if(!Objects.isNull(date)){
+
+            String[] partsDate = date.split("-");
+
+            processDate[0] = partsDate[2]; // Día
+            processDate[1] = partsDate[1]; // Mes
+            processDate[2] = partsDate[0]; // Año
+        }
+
+        return processDate;
+    }
+
 
     public List<User> findAll(){
 
         List<User> users = userRepository.findAllWithDocumentType();
 
-        // Filter data
-        for(User user: users){
+        return listFilterEmptySpaces(users);
+    }
 
-            user = filterEmpytySpaces(user);
-        }
+    @Override
+    public List<User> findAllSortedById() {
+
+        List<User> users = findAll();
+        // Ordena la lista de usuarios por el campo "userId"
+        users.sort(Comparator.comparingLong(User::getUserId));
+        return users;
+ }
+
+    @Override
+    public List<User> findALlSortedByName() {
+
+        List<User> users = findAll();
+        // Ordenar la lista de usuarios por el campo "name" y tratar los valores nulos como mayores que cualquier otro valor
+        users.sort(Comparator.comparing(User::getName, Comparator.nullsLast(String::compareTo)));
+        return users;
+    }
+
+    @Override
+    public List<User> findAllSortedByLastName() {
+
+        List<User> users = findAll();
+        // Ordenar la lista de usuarios por el campo "lastName" y tratar los valores nulos como mayores que cualquier otro valor
+        users.sort(Comparator.comparing(User::getLastName, Comparator.nullsLast(String::compareTo)));
 
         return users;
+    }
+
+    @Override
+    public List<User> findAllSortedByDocumentNumber() {
+        List<User> users = findAll();
+        // Ordenar la lista de usuarios por el campo "DocumentNumber" y tratar los valores nulos como mayores que cualquier otro valor
+        users.sort(Comparator.comparing(User::getDocumentNumber, Comparator.nullsLast(String::compareTo)));
+        return users;
+    }
+
+    @Override
+    public List<User> findAllSortedByNumberPhone() {
+        List<User> users = findAll();
+        // Ordenar la lista de usuarios por el campo "numberphone" y tratar los valores nulos como mayores que cualquier otro valor
+        users.sort(Comparator.comparing(User::getNumberPhobe, Comparator.nullsLast((String::compareTo))));
+        return users;
+    }
+
+    @Override
+    public List<User> findAllSortedByEmail() {
+        List<User> users = findAll();
+
+        users.sort(Comparator.comparing(User::getEmail, Comparator.nullsLast(String::compareTo)));
+        return users;
+    }
+
+    @Override
+    public List<User> findAllSortedByCreationDate() {
+
+        return null;
+    }
+
+    @Override
+    public List<User> findAllSortedByBirthDate() {
+        return null;
+    }
+
+    @Override
+    public List<User> findAllSortedByDocumentType() {
+        return null;
     }
 
     @Override
@@ -72,7 +173,7 @@ public class UserServiceImpl implements IUserService{
 
         if(userOptional.isPresent()){
             User user = userOptional.get();
-            user = filterEmpytySpaces(user);
+            user = filterEmptySpaces(user);
             //userOptional = Optional.of(user);
         }
 
@@ -83,7 +184,7 @@ public class UserServiceImpl implements IUserService{
     @Override
     public User save(User user) {
 
-        user = filterEmpytySpaces(user);
+        user = filterEmptySpaces(user);
 
         if(user.getEmail() == null || user.getEmail().isEmpty()){
             throw new IllegalArgumentException("The email of the User is requeried");
@@ -101,7 +202,7 @@ public class UserServiceImpl implements IUserService{
     @Override
     public User update(User user) {
 
-        user = filterEmpytySpaces(user);
+        user = filterEmptySpaces(user);
 
         if(user.getEmail() == null || user.getEmail().isEmpty()){
             throw new IllegalArgumentException("The email of the User is requeried");
