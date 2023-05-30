@@ -5,7 +5,9 @@ import com.spring.ecomspring.entities.User;
 import com.spring.ecomspring.repository.DocumentTypeRepository;
 import com.spring.ecomspring.repository.UserRepository;
 import com.spring.ecomspring.services.UserServiceImpl;
+import com.spring.ecomspring.util.SortingCriteria;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -38,37 +40,47 @@ public class UserController {
     @GetMapping
     public ResponseEntity<List<User>> findAll(@RequestParam(required = false) String sortBy){
 
-        List<User> users;
+        SortingCriteria<User> sortingCriteria;
 
-        if(sortBy == null){
-            users = userServiceimpl.findAll();
+        if(sortBy != null && !sortBy.isEmpty()){
+            sortingCriteria = new SortingCriteria<>(sortBy,Sort.Direction.ASC);
         }else{
-            switch (sortBy) {
-                case "id":
-                    users = userServiceimpl.findAllSortedById();
-                    break;
-                case "name":
-                    users = userServiceimpl.findALlSortedByName();
-                    break;
-                case "lastname":
-                    users = userServiceimpl.findAllSortedByLastName();
-                    break;
-                case "documentnumber":
-                    users = userServiceimpl.findAllSortedByDocumentNumber();
-                    break;
-                case "numberphone":
-                    users = userServiceimpl.findAllSortedByNumberPhone();
-                    break;
-                case "email":
-                    users = userServiceimpl.findAllSortedByEmail();
-                    break;
-                default:
-                    users = userServiceimpl.findAll();
-                    break;
-            }
+            sortingCriteria = new SortingCriteria<>("userId", Sort.Direction.ASC);
         }
 
-        return  ResponseEntity.ok(users);
+        List<User> users = userServiceimpl.findAllUserWithSorting(sortingCriteria);
+        return ResponseEntity.ok(users);
+
+//        List<User> users;
+//
+//            users = userServiceimpl.findAll();
+//        }else{
+//            switch (sortBy) {
+//                case "id":
+//                    users = userServiceimpl.findAllSortedById();
+//                    break;
+//                case "name":
+//                    users = userServiceimpl.findALlSortedByName();
+//                    break;
+//                case "lastname":
+//                    users = userServiceimpl.findAllSortedByLastName();
+//                    break;
+//                case "documentnumber":
+//                    users = userServiceimpl.findAllSortedByDocumentNumber();
+//                    break;
+//                case "numberphone":
+//                    users = userServiceimpl.findAllSortedByNumberPhone();
+//                    break;
+//                case "email":
+//                    users = userServiceimpl.findAllSortedByEmail();
+//                    break;
+//                default:
+//                    users = userServiceimpl.findAll();
+//                    break;
+//            }
+//        }
+//
+//        return  ResponseEntity.ok(users);
     }
 
     @GetMapping("/{id}")

@@ -3,6 +3,7 @@ package com.spring.ecomspring.services;
 import com.spring.ecomspring.entities.DocumentType;
 import com.spring.ecomspring.entities.User;
 import com.spring.ecomspring.repository.UserRepository;
+import com.spring.ecomspring.util.SortingCriteria;
 import com.spring.ecomspring.util.StringUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
@@ -164,6 +165,12 @@ public class UserServiceImpl implements IUserService{
     @Override
     public List<User> findAllSortedByDocumentType() {
         return null;
+    }
+
+    public List<User> findAllUserWithSorting(SortingCriteria<User> sortingCriteria){
+        //return userRepository.findAllWithSorting(sortingCriteria);
+        Sort sort = Sort.by(sortingCriteria.getDirection(), sortingCriteria.getProperty());
+        return userRepository.findAll(sort);
     }
 
     @Override
